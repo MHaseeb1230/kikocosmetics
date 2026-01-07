@@ -1,0 +1,333 @@
+{
+    "categories": [
+        {
+            "id": "makeup",
+            "name": "Make Up",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/MAKE_UP_CATEGORY.jpg?v=1710412345"
+        },
+        {
+            "id": "skincare",
+            "name": "Skin Care",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SKIN_CARE_CATEGORY.jpg?v=1710412345"
+        },
+        {
+            "id": "accessories",
+            "name": "Accessories",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/ACCESSORIES_CATEGORY.jpg?v=1710412345"
+        }
+    ],
+    "products": [
+        {
+            "id": 1,
+            "name": "3D Hydra Lipgloss",
+            "price": 4968,
+            "originalPrice": 6210,
+            "discount": 20,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/3D_HYDRA_LIPGLOSS_01.jpg?v=1710412345",
+            "description": "Softening lip gloss for a 3D look. The soft texture feels wonderful, blending into the lips and leaving them smooth and radiant.",
+            "swatches": [
+                "#F8D7DA",
+                "#F1B0B7",
+                "#EE82EE",
+                "#FF007F",
+                "#8B0000"
+            ]
+        },
+        {
+            "id": 2,
+            "name": "Unlimited Double Touch",
+            "price": 5500,
+            "originalPrice": 6875,
+            "discount": 20,
+            "category": "makeup",
+            "image": "/src/assets/season/kiko.foundation.webp",
+            "description": "Long-lasting liquid lipstick in 2 steps: a base color and a lip gloss with a bright and radiant finish.",
+            "swatches": [
+                "#FFB6C1",
+                "#FF69B4",
+                "#CD5C5C",
+                "#B22222"
+            ]
+        },
+        {
+            "id": 3,
+            "name": "Full Coverage 2-in-1 Foundation",
+            "price": 7200,
+            "originalPrice": 8000,
+            "discount": 10,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/FOUNDATION_01.jpg?v=1710412345",
+            "description": "2-in-1 foundation and concealer, superior coverage.",
+            "swatches": [
+                "#F5DEB3",
+                "#DEB887",
+                "#D2B48C",
+                "#BC8F8F"
+            ]
+        },
+        {
+            "id": 4,
+            "name": "Candy Crush Sparkle Lip Gloss",
+            "price": 2241,
+            "originalPrice": 7470,
+            "discount": 70,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/kiko_KC000000969001B_01-1747140973262.webp?v=1755770597",
+            "isSoldOut": true,
+            "swatches": [
+                "#FFB6C1",
+                "#FF69B4",
+                "#CD5C5C"
+            ]
+        },
+        {
+            "id": 5,
+            "name": "Juicy Fizz 3D Hydra Lip Gloss Limited Edition",
+            "price": 2403,
+            "originalPrice": 8010,
+            "discount": 70,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/kiko_KC000001070001B_01-1743600713493.webp?v=1752042605",
+            "isSoldOut": true,
+            "swatches": [
+                "#FFB6C1",
+                "#FF69B4",
+                "#CD5C5C"
+            ]
+        },
+        {
+            "id": 6,
+            "name": "Juicy Fizz Color Shot Lip Gloss & Stain",
+            "price": 2835,
+            "originalPrice": 9450,
+            "discount": 70,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/kiko_KC000001080001B_01-1743600810271.webp?v=1752042600",
+            "isSoldOut": true,
+            "swatches": [
+                "#FFB6C1",
+                "#FF69B4",
+                "#CD5C5C"
+            ]
+        },
+        {
+            "id": 7,
+            "name": "Juicy Fizz Gleam Shot Solid Ph Lip Oil",
+            "price": 2403,
+            "originalPrice": 8010,
+            "discount": 70,
+            "category": "skincare",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/kiko_KC000001176001B_01-1743601019511.webp?v=1752042606",
+            "isSoldOut": true,
+            "swatches": []
+        },
+        {
+            "id": 8,
+            "name": "Smart Fusion Lipstick",
+            "price": 2328,
+            "originalPrice": 2910,
+            "discount": 20,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_FUSION_LIPSTICK_01.jpg?v=1710412345"
+        },
+        {
+            "id": 9,
+            "name": "Coloured Lip Balm",
+            "price": 3330,
+            "originalPrice": 3700,
+            "discount": 10,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/COLOURED_LIP_BALM_01.jpg?v=1710412345"
+        },
+        {
+            "id": 10,
+            "name": "Smart Fusion Lip Pencil",
+            "price": 1715,
+            "originalPrice": 2450,
+            "discount": 30,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_FUSION_LIP_PENCIL_01.jpg?v=1710412345"
+        },
+        {
+            "id": 11,
+            "name": "Unlimited Lip Stylo",
+            "price": 4680,
+            "originalPrice": 5850,
+            "discount": 20,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/UNLIMITED_LIP_STYLO_01.jpg?v=1710412345"
+        },
+        {
+            "id": 12,
+            "name": "Gossamer Emotion Creamy Lipstick",
+            "price": 4680,
+            "originalPrice": 5850,
+            "discount": 20,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/GOSSAMER_EMOTION_LIPSTICK_01.jpg?v=1710412345"
+        },
+        {
+            "id": 13,
+            "name": "Jelly Stylo",
+            "price": 4193,
+            "originalPrice": 5990,
+            "discount": 30,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/JELLY_STYLO_01.jpg?v=1710412345"
+        },
+        {
+            "id": 14,
+            "name": "Long Lasting Colour Lip Marker",
+            "price": 4680,
+            "originalPrice": 5850,
+            "discount": 20,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_MARKER_01.jpg?v=1710412345"
+        },
+        {
+            "id": 15,
+            "name": "Lasting Matte Veil - 2023",
+            "price": 4968,
+            "originalPrice": 6210,
+            "discount": 20,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/LASTING_MATTE_VEIL_01.jpg?v=1710412345"
+        },
+        {
+            "id": 16,
+            "name": "Velvet Passion Matte Lipstick",
+            "price": 4680,
+            "originalPrice": 5850,
+            "discount": 20,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/VELVET_PASSION_LIPSTICK_01.jpg?v=1710412345"
+        },
+        {
+            "id": 17,
+            "name": "Lip Volume Tutu Rose New 2019",
+            "price": 3528,
+            "originalPrice": 4410,
+            "discount": 20,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_VOLUME_TUTU_01.jpg?v=1710412345"
+        },
+        {
+            "id": 18,
+            "name": "Smart Fusion Creamy Lip Crayon",
+            "price": 1905,
+            "originalPrice": 3810,
+            "discount": 50,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_FUSION_CRAYON_01.jpg?v=1710412345"
+        },
+        {
+            "id": 19,
+            "name": "Hydra Shiny Lip Stylo",
+            "price": 3850,
+            "originalPrice": 5500,
+            "discount": 30,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/HYDRA_SHINY_LIP_STYLO_01.jpg?v=1710412345"
+        },
+        {
+            "id": 20,
+            "name": "Smart Fusion Matte Lip Crayon",
+            "price": 1905,
+            "originalPrice": 3810,
+            "discount": 50,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_FUSION_MATTE_CRAYON_01.jpg?v=1710412345"
+        },
+        {
+            "id": 21,
+            "name": "Lip Scrub New 2019",
+            "price": 2248,
+            "originalPrice": 2810,
+            "discount": 20,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_SCRUB_01.jpg?v=1710412345"
+        },
+        {
+            "id": 22,
+            "name": "Metal Liquid Lip Colour",
+            "price": 4347,
+            "originalPrice": 6210,
+            "discount": 30,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/METAL_LIQUID_LIP_01.jpg?v=1710412345"
+        },
+        {
+            "id": 23,
+            "name": "Lip Balm New 2019",
+            "price": 2248,
+            "originalPrice": 2810,
+            "discount": 20,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_BALM_01.jpg?v=1710412345"
+        },
+        {
+            "id": 24,
+            "name": "Instant Colour Matte Liquid Lip Colour",
+            "price": 4095,
+            "originalPrice": 5850,
+            "discount": 30,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/INSTANT_COLOUR_MATTE_01.jpg?v=1710412345"
+        },
+        {
+            "id": 25,
+            "name": "Lip Volume Trasparente New 2019",
+            "price": 3528,
+            "originalPrice": 4410,
+            "discount": 20,
+            "category": "makeup",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_VOLUME_TRASPARENTE_01.jpg?v=1710412345"
+        },
+        {
+            "id": 26,
+            "name": "Smart Drops Glow Glowing Booster",
+            "price": 3157,
+            "originalPrice": 4510,
+            "discount": 30,
+            "category": "skincare",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_DROPS_GLOW_01.jpg?v=1710412345"
+        },
+        {
+            "id": 27,
+            "name": "New Hydra Pro Glow",
+            "price": 9288,
+            "originalPrice": 11610,
+            "discount": 20,
+            "category": "skincare",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/HYDRA_PRO_GLOW_01.jpg?v=1710412345"
+        },
+        {
+            "id": 28,
+            "name": "Intensive Hand Cream",
+            "price": 3159,
+            "originalPrice": 3510,
+            "discount": 10,
+            "category": "skincare",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/INTENSIVE_HAND_CREAM_01.jpg?v=1710412345"
+        },
+        {
+            "id": 29,
+            "name": "Smart Radiance Cream 3In1",
+            "price": 5887,
+            "originalPrice": 8410,
+            "discount": 30,
+            "category": "skincare",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_RADIANCE_CREAM_01.jpg?v=1710412345"
+        },
+        {
+            "id": 30,
+            "name": "Smart Hydra Shot Stick",
+            "price": 2975,
+            "originalPrice": 4250,
+            "discount": 30,
+            "category": "skincare",
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_HYDRA_SHOT_01.jpg?v=1710412345"
+        }
+    ]
+}

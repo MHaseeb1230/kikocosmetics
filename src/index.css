@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #FF007F;
+  --color-secondary: #1C1B1B;
+  --color-accent: #F8F8F8;
+  --color-pink-light: #FDE7F3;
+  --color-header-dark: #212121;
+  --color-sale-box: #F8E0E0;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+body {
+  font-family: var(--font-sans);
+  @apply text-[#1C1B1B] bg-white;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.btn-primary {
+  @apply bg-primary text-white px-6 py-2 rounded-full font-semibold hover:opacity-90 transition-all;
+}
+
+.btn-secondary {
+  @apply bg-secondary text-white px-6 py-2 rounded-full font-semibold hover:opacity-90 transition-all;
+}
+
+/* Scrollbar styling */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: thin;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: block;
+  height: 4px;
+}
+
+.scrollbar-hide::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 10px;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
