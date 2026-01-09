@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, User, Heart, ShoppingBag, Menu, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
@@ -6,6 +6,119 @@ import { useCart } from '../context/CartContext';
 const Navbar = () => {
     const { cartCount } = useCart();
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const [activeDropdown, setActiveDropdown] = useState(null);
+    const [activeSubcategory, setActiveSubcategory] = useState(null);
+    const closeTimeoutRef = useRef(null);
+
+    const handleMouseEnter = (dropdown) => {
+        // Clear any pending close timeout
+        if (closeTimeoutRef.current) {
+            clearTimeout(closeTimeoutRef.current);
+            closeTimeoutRef.current = null;
+        }
+        setActiveDropdown(dropdown);
+    };
+
+    const handleMouseLeave = () => {
+        // Set a timeout to close the dropdown after 2 seconds
+        closeTimeoutRef.current = setTimeout(() => {
+            setActiveDropdown(null);
+            setActiveSubcategory(null);
+        }, 2000);
+    };
+
+    const handleDropdownMouseEnter = () => {
+        // Clear the timeout if user hovers over the dropdown
+        if (closeTimeoutRef.current) {
+            clearTimeout(closeTimeoutRef.current);
+            closeTimeoutRef.current = null;
+        }
+    };
+
+    const handleDropdownMouseLeave = () => {
+        // Close immediately when leaving the dropdown
+        setActiveDropdown(null);
+        setActiveSubcategory(null);
+    };
+
+    const menuItems = {
+        makeup: {
+            title: 'Make Up',
+            link: '/category/makeup',
+            subcategories: [
+                {
+                    title: 'Face MakeUp',
+                    items: ['Foundations', 'Bronzers & Contours', 'Face Highlighters', 'Face Powders', 'Blush', 'Concealers', 'Makeup Fixers', 'Face Primers']
+                },
+                {
+                    title: 'Eye Makeup',
+                    items: ['Mascaras', 'Eye Pencils', 'Eyeliners', 'Eyeshadows', 'Eyebrows']
+                },
+                {
+                    title: 'Lip Makeup',
+                    items: ['Lipsticks', 'Lip Pencils', 'Lip Glosses']
+                },
+                {
+                    title: 'Hands',
+                    items: ['Nail Polish', 'French Nails', 'Nail Care']
+                },
+                {
+                    title: 'Palettes',
+                    items: ['Face Palettes', 'Eye Palettes', 'Combinable Palettes']
+                }
+            ]
+        },
+        skincare: {
+            title: 'Skin Care',
+            link: '/category/skincare',
+            subcategories: [
+                {
+                    title: 'Face',
+                    items: ['Moisturisers', 'Cleansing', 'Serums', 'Beauty Masks', 'Anti Blemish', 'Exfoliators']
+                },
+                {
+                    title: 'Lips',
+                    items: ['Lip Balms', 'Lip Care']
+                },
+                {
+                    title: 'Hands & Feet',
+                    items: ['Hand Cream', 'Foot Treatments']
+                }
+            ]
+        },
+        accessories: {
+            title: 'Accessories',
+            link: '/category/accessories',
+            subcategories: [
+                {
+                    title: 'Face Accessories',
+                    items: ['Makeup Sponges and Mirrors', 'Cleansing Sponges']
+                },
+                {
+                    title: 'Eye Accessories',
+                    items: ['Steel Eyelash Curlers', 'False Eyelashes', 'Eye Pencil Sharpeners']
+                },
+                {
+                    title: 'Hand Care Accessories',
+                    items: ['Nail Polish Removers', 'Manicure', 'Nail Files']
+                },
+                {
+                    title: 'Makeup Brush Sets',
+                    items: ['Brush Holders', 'Face Brushes', 'Eye Brushes', 'Lip Brushes']
+                }
+            ]
+        },
+        hair: {
+            title: 'Hair',
+            link: '/category/hair',
+            subcategories: [
+                {
+                    title: 'Hair Care',
+                    items: ['Shampoos', 'Sprays', 'Conditioners', 'Serums', 'Masks']
+                }
+            ]
+        }
+    };
 
     return (
         <nav className="sticky top-0 z-50 bg-white shadow-sm">
@@ -41,7 +154,7 @@ const Navbar = () => {
                 <div className="flex-1 flex justify-center">
                     <Link to="/">
                         <img
-                            src="/src/assets/logos/Logo.webp"
+                            src="/src/assets/logos/Needs logo.png"
                             alt="Kiko Milano"
                             className="h-7"
                         />
@@ -67,14 +180,267 @@ const Navbar = () => {
             </div>
 
             {/* Category Navigation */}
-            <div className="hidden lg:flex justify-center bg-pink-light py-3 border-t border-b border-pink-200">
+            <div className="hidden lg:flex justify-center bg-pink-light py-3 border-t border-b border-pink-200 relative">
                 <div className="flex gap-8 text-[11px] font-bold uppercase tracking-widest">
-                    <Link to="/category/makeup" className="hover:text-primary transition-colors">Make Up</Link>
-                    <Link to="/category/skincare" className="hover:text-primary transition-colors">Skin Care</Link>
-                    <Link to="/category/accessories" className="hover:text-primary transition-colors">Accessories</Link>
+                    <div 
+                        className="relative"
+                        onMouseEnter={() => handleMouseEnter('makeup')}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        <Link to="/category/makeup" className="hover:text-primary transition-colors">
+                            Make Up
+                        </Link>
+                        {activeDropdown === 'makeup' && (
+                            <div 
+                                className="absolute left-0 top-full mt-3 bg-white shadow-lg z-50 animate-fadeIn flex"
+                                onMouseEnter={handleDropdownMouseEnter}
+                                onMouseLeave={handleDropdownMouseLeave}
+                            >
+                                {/* Left Side - Categories */}
+                                <div className="bg-gray-50 py-4 min-w-[220px]">
+                                    <Link 
+                                        to="/category/makeup" 
+                                        className="block px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-700 hover:bg-white hover:text-primary transition-colors"
+                                    >
+                                        Go to Make Up
+                                    </Link>
+                                    {menuItems.makeup.subcategories.map((category, idx) => (
+                                        <div
+                                            key={idx}
+                                            onMouseEnter={() => setActiveSubcategory(idx)}
+                                            className="relative"
+                                        >
+                                            <div className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-800 hover:bg-white hover:text-primary transition-colors cursor-pointer">
+                                                {category.title}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Right Side - Items */}
+                                {activeSubcategory !== null && menuItems.makeup.subcategories[activeSubcategory] && (
+                                    <div 
+                                        className="bg-white py-4 px-6 min-w-[280px] border-l border-gray-200 animate-slideIn"
+                                        onMouseEnter={() => setActiveSubcategory(activeSubcategory)}
+                                    >
+                                        <div>
+                                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-3 pb-2 border-b border-gray-200">
+                                                {menuItems.makeup.subcategories[activeSubcategory].title}
+                                            </h3>
+                                            <ul className="space-y-1">
+                                                {menuItems.makeup.subcategories[activeSubcategory].items.map((item, itemIdx) => (
+                                                    <li key={itemIdx}>
+                                                        <Link 
+                                                            to={`/category/makeup/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                                                            className="block py-1.5 text-xs text-gray-600 hover:text-primary transition-colors uppercase tracking-wide"
+                                                        >
+                                                            {item}
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+
+                    <div 
+                        className="relative"
+                        onMouseEnter={() => handleMouseEnter('skincare')}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        <Link to="/category/skincare" className="hover:text-primary transition-colors">
+                            Skin Care
+                        </Link>
+                        {activeDropdown === 'skincare' && (
+                            <div 
+                                className="absolute left-0 top-full mt-3 bg-white shadow-lg z-50 animate-fadeIn flex"
+                                onMouseEnter={handleDropdownMouseEnter}
+                                onMouseLeave={handleDropdownMouseLeave}
+                            >
+                                {/* Left Side - Categories */}
+                                <div className="bg-gray-50 py-4 min-w-[220px]">
+                                    <Link 
+                                        to="/category/skincare" 
+                                        className="block px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-700 hover:bg-white hover:text-primary transition-colors"
+                                    >
+                                        Go to Skin Care
+                                    </Link>
+                                    {menuItems.skincare.subcategories.map((category, idx) => (
+                                        <div
+                                            key={idx}
+                                            onMouseEnter={() => setActiveSubcategory(idx)}
+                                            className="relative"
+                                        >
+                                            <div className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-800 hover:bg-white hover:text-primary transition-colors cursor-pointer">
+                                                {category.title}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Right Side - Items */}
+                                {activeSubcategory !== null && menuItems.skincare.subcategories[activeSubcategory] && (
+                                    <div 
+                                        className="bg-white py-4 px-6 min-w-[280px] border-l border-gray-200 animate-slideIn"
+                                        onMouseEnter={() => setActiveSubcategory(activeSubcategory)}
+                                    >
+                                        <div>
+                                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-3 pb-2 border-b border-gray-200">
+                                                {menuItems.skincare.subcategories[activeSubcategory].title}
+                                            </h3>
+                                            <ul className="space-y-1">
+                                                {menuItems.skincare.subcategories[activeSubcategory].items.map((item, itemIdx) => (
+                                                    <li key={itemIdx}>
+                                                        <Link 
+                                                            to={`/category/skincare/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                                                            className="block py-1.5 text-xs text-gray-600 hover:text-primary transition-colors uppercase tracking-wide"
+                                                        >
+                                                            {item}
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+
+                    <div 
+                        className="relative"
+                        onMouseEnter={() => handleMouseEnter('accessories')}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        <Link to="/category/accessories" className="hover:text-primary transition-colors">
+                            Accessories
+                        </Link>
+                        {activeDropdown === 'accessories' && (
+                            <div 
+                                className="absolute left-0 top-full mt-3 bg-white shadow-lg z-50 animate-fadeIn flex"
+                                onMouseEnter={handleDropdownMouseEnter}
+                                onMouseLeave={handleDropdownMouseLeave}
+                            >
+                                {/* Left Side - Categories */}
+                                <div className="bg-gray-50 py-4 min-w-[220px]">
+                                    <Link 
+                                        to="/category/accessories" 
+                                        className="block px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-700 hover:bg-white hover:text-primary transition-colors"
+                                    >
+                                        Go to Accessories
+                                    </Link>
+                                    {menuItems.accessories.subcategories.map((category, idx) => (
+                                        <div
+                                            key={idx}
+                                            onMouseEnter={() => setActiveSubcategory(idx)}
+                                            className="relative"
+                                        >
+                                            <div className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-800 hover:bg-white hover:text-primary transition-colors cursor-pointer">
+                                                {category.title}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Right Side - Items */}
+                                {activeSubcategory !== null && menuItems.accessories.subcategories[activeSubcategory] && (
+                                    <div 
+                                        className="bg-white py-4 px-6 min-w-[280px] border-l border-gray-200 animate-slideIn"
+                                        onMouseEnter={() => setActiveSubcategory(activeSubcategory)}
+                                    >
+                                        <div>
+                                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-3 pb-2 border-b border-gray-200">
+                                                {menuItems.accessories.subcategories[activeSubcategory].title}
+                                            </h3>
+                                            <ul className="space-y-1">
+                                                {menuItems.accessories.subcategories[activeSubcategory].items.map((item, itemIdx) => (
+                                                    <li key={itemIdx}>
+                                                        <Link 
+                                                            to={`/category/accessories/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                                                            className="block py-1.5 text-xs text-gray-600 hover:text-primary transition-colors uppercase tracking-wide"
+                                                        >
+                                                            {item}
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+
                     <Link to="/category/suncare" className="hover:text-primary transition-colors">Sun Care</Link>
                     <Link to="/category/fragrances" className="hover:text-primary transition-colors">Fragrances</Link>
-                    <Link to="/category/hair" className="hover:text-primary transition-colors">Hair</Link>
+                    
+                    <div 
+                        className="relative"
+                        onMouseEnter={() => handleMouseEnter('hair')}
+                        onMouseLeave={handleMouseLeave}
+                    >
+                        <Link to="/category/hair" className="hover:text-primary transition-colors">
+                            Hair
+                        </Link>
+                        {activeDropdown === 'hair' && (
+                            <div 
+                                className="absolute left-0 top-full mt-3 bg-white shadow-lg z-50 animate-fadeIn flex"
+                                onMouseEnter={handleDropdownMouseEnter}
+                                onMouseLeave={handleDropdownMouseLeave}
+                            >
+                                {/* Left Side - Categories */}
+                                <div className="bg-gray-50 py-4 min-w-[220px]">
+                                    <Link 
+                                        to="/category/hair" 
+                                        className="block px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-700 hover:bg-white hover:text-primary transition-colors"
+                                    >
+                                        Go to Hair
+                                    </Link>
+                                    {menuItems.hair.subcategories.map((category, idx) => (
+                                        <div
+                                            key={idx}
+                                            onMouseEnter={() => setActiveSubcategory(idx)}
+                                            className="relative"
+                                        >
+                                            <div className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-800 hover:bg-white hover:text-primary transition-colors cursor-pointer">
+                                                {category.title}
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+
+                                {/* Right Side - Items */}
+                                {activeSubcategory !== null && menuItems.hair.subcategories[activeSubcategory] && (
+                                    <div 
+                                        className="bg-white py-4 px-6 min-w-[280px] border-l border-gray-200 animate-slideIn"
+                                        onMouseEnter={() => setActiveSubcategory(activeSubcategory)}
+                                    >
+                                        <div>
+                                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-3 pb-2 border-b border-gray-200">
+                                                {menuItems.hair.subcategories[activeSubcategory].title}
+                                            </h3>
+                                            <ul className="space-y-1">
+                                                {menuItems.hair.subcategories[activeSubcategory].items.map((item, itemIdx) => (
+                                                    <li key={itemIdx}>
+                                                        <Link 
+                                                            to={`/category/hair/${item.toLowerCase().replace(/\s+/g, '-')}`}
+                                                            className="block py-1.5 text-xs text-gray-600 hover:text-primary transition-colors uppercase tracking-wide"
+                                                        >
+                                                            {item}
+                                                        </Link>
+                                                    </li>
+                                                ))}
+                                            </ul>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+                        )}
+                    </div>
+
                     <Link to="/category/new" className="text-primary hover:opacity-80 transition-colors">New</Link>
                 </div>
             </div>

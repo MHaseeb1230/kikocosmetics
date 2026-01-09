@@ -10,10 +10,12 @@ import { ArrowRight, ChevronLeft, ChevronRight, Truck, ShieldCheck, RotateCcw } 
 import { motion, AnimatePresence } from 'framer-motion';
 
 const heroImages = [
-    '/src/assets/hero/banner1.webp',
-    '/src/assets/hero/banner2.webp',
-    '/src/assets/hero/banner3.webp',
-    '/src/assets/hero/banner4.webp',
+    '/src/assets/hero/hero1.jpg',
+    // '/src/assets/hero/hero2.jpg',
+    '/src/assets/hero/hero5.jpg',
+
+    '/src/assets/hero/hero3.jpg',
+    '/src/assets/hero/hero4.jpg',
 ];
 
 const Home = () => {
@@ -89,7 +91,7 @@ const Home = () => {
             </div> */}
 
             {/* Hero Section Carousel */}
-            <section className="relative h-[120vh] overflow-hidden">
+            <section className="relative h-[95vh] overflow-hidden">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={currentSlide}
