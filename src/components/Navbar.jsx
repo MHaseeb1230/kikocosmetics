@@ -2,6 +2,8 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, User, Heart, ShoppingBag, Menu, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import logo from '../assets/logos/Needs Logo.png';
+import logoMobile from '../assets/logos/Logo.webp';
 
 const Navbar = () => {
     const { cartCount } = useCart();
@@ -154,7 +156,7 @@ const Navbar = () => {
                 <div className="flex-1 flex justify-center">
                     <Link to="/">
                         <img
-                            src="/src/assets/logos/Needs logo.png"
+                            src={logo}
                             alt="Kiko Milano"
                             className="h-7"
                         />
@@ -450,7 +452,7 @@ const Navbar = () => {
                 <div className="fixed inset-0 z-[60] bg-white lg:hidden">
                     <div className="p-4 border-b flex justify-between items-center">
                         <img
-                            src="/src/assets/logos/Logo.webp"
+                            src={logoMobile}
                             alt="Kiko Milano"
                             className="h-8"
                         />
