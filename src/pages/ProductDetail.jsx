@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import mockData from '../data/mockData.js';
 import { useCart } from '../context/CartContext';
@@ -13,6 +13,11 @@ const ProductDetail = () => {
     const [selectedSwatch, setSelectedSwatch] = useState(product?.swatches?.[0]);
     const [activeTab, setActiveTab] = useState('description');
     const [selectedImage, setSelectedImage] = useState(0);
+
+    // Scroll to top when component mounts or product changes
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
 
     if (!product) return <div className="container mx-auto px-4 py-20 text-center">Product not found</div>;
 

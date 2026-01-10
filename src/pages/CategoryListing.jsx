@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import mockData from '../data/mockData.js';
 import CategoryCard from '../components/CategoryCard';
 
 const CategoryListing = () => {
+    // Scroll to top when component mounts
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, []);
+
     return (
         <div className="container mx-auto px-4 py-12">
             <h1 className="text-3xl font-bold uppercase tracking-widest mb-12 text-center">All Categories</h1>

@@ -1,4 +1,4 @@
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import mockData from '../data/mockData.js';
 import ProductCard from '../components/ProductCard';
@@ -10,6 +10,11 @@ const ProductListing = () => {
     const [priceRange, setPriceRange] = useState(10000);
 
     const category = mockData.categories.find(c => c.id === id);
+
+    // Scroll to top when component mounts or category changes
+    useEffect(() => {
+        window.scrollTo(0, 0);
+    }, [id]);
 
     const filteredProducts = useMemo(() => {
         let products = mockData.products.filter(p => p.category === id);
