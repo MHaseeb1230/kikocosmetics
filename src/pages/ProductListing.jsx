@@ -1,6 +1,6 @@
 import React, { useState, useMemo } from 'react';
 import { useParams } from 'react-router-dom';
-import mockData from '../data/mockData.json';
+import mockData from '../data/mockData.js';
 import ProductCard from '../components/ProductCard';
 import { SlidersHorizontal, ChevronDown } from 'lucide-react';
 

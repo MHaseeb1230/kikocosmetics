@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
-import mockData from '../data/mockData.json';
+import mockData from '../data/mockData.js';
 import ProductCard from '../components/ProductCard';
 import CategoryCard from '../components/CategoryCard';
 import ProductSlider from '../components/ProductSlider';

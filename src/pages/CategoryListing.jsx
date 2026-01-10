@@ -1,5 +1,5 @@
 import React from 'react';
-import mockData from '../data/mockData.json';
+import mockData from '../data/mockData.js';
 import CategoryCard from '../components/CategoryCard';
 
 const CategoryListing = () => {

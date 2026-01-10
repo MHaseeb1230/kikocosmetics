@@ -1,4 +1,15 @@
-{
+// Import product images
+import sunkiss from '../assets/NEEDS/01 sunkiss.jpg';
+import cleanser from '../assets/NEEDS/Picture1.png';
+import toner from '../assets/NEEDS/Picture2.png';
+import hyaluronicSerum from '../assets/NEEDS/Picture3.png';
+import vitaminCSerum from '../assets/NEEDS/Picture4.png';
+import acneSerum from '../assets/NEEDS/Picture5.png';
+import whiteningSerum from '../assets/NEEDS/Picture6.png';
+import nightCream from '../assets/NEEDS/Picture7.png';
+import dayCream from '../assets/NEEDS/Picture8.png';
+
+const mockData = {
     "categories": [
         {
             "id": "makeup",
@@ -25,7 +36,7 @@
             "discount": 12,
             "category": "skincare",
             "subcategory": "suncare",
-            "image": "/src/assets/NEEDS/01 sunkiss.jpg",
+            "image": sunkiss,
             "description": "Need's SunKiss Sunscreen provides ultimate sun protection with SPF 60+++ and advanced UV filters. Water-resistant and long-lasting formula perfect for active lifestyles.",
             "features": [
                 {
@@ -79,7 +90,7 @@
             "discount": 14,
             "category": "skincare",
             "subcategory": "cleansing",
-            "image": "/src/assets/NEEDS/Picture1.png",
+            "image": cleanser,
             "description": "Need's Rice And Coconut Facial Cleanser effectively brightens the skin and reduces dark spots with dual whitening technology. Enriched with hydrating and soothing ingredients for balanced, radiant skin.",
             "features": [
                 {
@@ -123,7 +134,7 @@
             "discount": 11,
             "category": "skincare",
             "subcategory": "toner",
-            "image": "/src/assets/NEEDS/Picture2.png",
+            "image": toner,
             "description": "Need's Hydrating Glass Skin Toner delivers multi-level hydration with powerful soothing agents. Infused with hyaluronic acid and antioxidant-rich ingredients for radiant, balanced skin.",
             "features": [
                 {
@@ -168,7 +179,7 @@
             "discount": 9,
             "category": "skincare",
             "subcategory": "serum",
-            "image": "/src/assets/NEEDS/Picture3.png",
+            "image": hyaluronicSerum,
             "description": "Need's Hyaluronic Acid Face Serum features a unique two-phase formula with powerful Blueberry Extract and Aloe Leaf Water for deep hydration. Age-defying peptide complex visibly reduces fine lines and wrinkles.",
             "features": [
                 {
@@ -215,7 +226,7 @@
             "discount": 10,
             "category": "skincare",
             "subcategory": "serum",
-            "image": "/src/assets/NEEDS/Picture4.png",
+            "image": vitaminCSerum,
             "description": "Need's Vitamin C Face Serum features a powerful Vitamin C complex with 3-O-Ethyl Ascorbic Acid to brighten complexion and reduce dark spots. Multi-vitamin blend nourishes and revitalizes for glowing, healthy skin.",
             "features": [
                 {
@@ -257,7 +268,7 @@
             "discount": 10,
             "category": "skincare",
             "subcategory": "serum",
-            "image": "/src/assets/NEEDS/Picture5.png",
+            "image": acneSerum,
             "description": "Need's Acne Solution Face Serum formulated with Salicylic Acid and Willow Bark Extract penetrates deep into pores to clear breakouts and prevent future blemishes. Gentle exfoliation with calming and soothing power.",
             "features": [
                 {
@@ -302,7 +313,7 @@
             "discount": 10,
             "category": "skincare",
             "subcategory": "serum",
-            "image": "/src/assets/NEEDS/Picture6.png",
+            "image": whiteningSerum,
             "description": "Need's Whitening Face Serum features Alpha-Arbutin and 3-O-Ethyl Ascorbic Acid to target dark spots for a visibly brighter complexion. Lightweight, fast-absorbing formula with cooling and refreshing sensation.",
             "features": [
                 {
@@ -347,7 +358,7 @@
             "discount": 4,
             "category": "skincare",
             "subcategory": "moisturizer",
-            "image": "/src/assets/NEEDS/Picture7.png",
+            "image": nightCream,
             "description": "Need's Hyaluronic Fairness Night Cream reduces fine lines and wrinkles while promoting smoother, more even skin tone. Boost collagen and restore elasticity for visibly lifted, youthful skin every morning.",
             "features": [
                 {
@@ -394,7 +405,7 @@
             "discount": 4,
             "category": "skincare",
             "subcategory": "moisturizer",
-            "image": "/src/assets/NEEDS/Picture8.png",
+            "image": dayCream,
             "description": "Need's Vitamin C Brightening Day Cream enriched with 3-O-Ethyl Ascorbic Acid and Niacinamide visibly reduces dark spots for a radiant complexion. Lightweight, non-greasy formula perfect as daily base.",
             "features": [
                 {
@@ -624,4 +635,7 @@
             "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_HYDRA_SHOT_01.jpg?v=1710412345"
         }
     ]
-}
+};
+
+export default mockData;
+

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import mockData from '../data/mockData.json';
+import mockData from '../data/mockData.js';
 import { useCart } from '../context/CartContext';
 import QuantitySelector from '../components/QuantitySelector';
 import { Heart, Share2, ShieldCheck, Truck, RotateCcw, Package, MapPin, Calendar } from 'lucide-react';
