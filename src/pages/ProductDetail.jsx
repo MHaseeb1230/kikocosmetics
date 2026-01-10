@@ -3,7 +3,7 @@ import { useParams } from 'react-router-dom';
 import mockData from '../data/mockData.json';
 import { useCart } from '../context/CartContext';
 import QuantitySelector from '../components/QuantitySelector';
-import { Heart, Share2, ShieldCheck, Truck, RotateCcw } from 'lucide-react';
+import { Heart, Share2, ShieldCheck, Truck, RotateCcw, Package, MapPin, Calendar } from 'lucide-react';
 
 const ProductDetail = () => {
     const { id } = useParams();
@@ -11,96 +11,260 @@ const ProductDetail = () => {
     const product = mockData.products.find(p => p.id === parseInt(id));
     const [quantity, setQuantity] = useState(1);
     const [selectedSwatch, setSelectedSwatch] = useState(product?.swatches?.[0]);
+    const [activeTab, setActiveTab] = useState('description');
+    const [selectedImage, setSelectedImage] = useState(0);
 
     if (!product) return <div className="container mx-auto px-4 py-20 text-center">Product not found</div>;
 
+    const tabs = [
+        { id: 'description', label: 'DESCRIPTION' },
+        { id: 'results', label: 'RESULTS' },
+        { id: 'advice', label: 'ADVICE' },
+        { id: 'ingredients', label: 'INGREDIENTS' }
+    ];
+
     return (
-        <div className="container mx-auto px-4 py-12">
-            <div className="flex flex-col lg:flex-row gap-16">
-                {/* Product Images */}
-                <div className="flex-1 space-y-4">
-                    <div className="aspect-square bg-gray-100 overflow-hidden rounded-2xl">
-                        <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
+        <div className="bg-[var(--color-bg-light)] min-h-screen">
+            {/* Top Section - Product Details */}
+            <div className="container mx-auto px-4 py-12">
+                <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+                    {/* Left - Product Title & Thumbnails */}
+                    <div className='flex justify-center items-center lg:col-span-3'>
+                    <div className="lg:col-span-3 order-1 gap-4">
+                        <h1 className="text-3xl lg:text-4xl font-light mb-8 leading-tight">
+                            {product.name}
+                        </h1>
+                        
+                        {/* Thumbnail Images */}
+                        <div className="flex  gap-4">
+                            {[0, 1].map(i => (
+                                <button
+                                    key={i}
+                                    onClick={() => setSelectedImage(i)}
+                                    className={`w-16 h-16 lg:w-20 lg:h-20 bg-primary rounded-lg overflow-hidden border-2 transition-all ${
+                                        selectedImage === i ? 'border-primary' : 'border-transparent'
+                                    }`}
+                                >
+                                    <img src={product.image} alt={`${product.name} ${i + 1}`} className="w-full h-full object-cover" />
+                                </button>
+                            ))}
+                        </div>
                     </div>
-                    <div className="grid grid-cols-4 gap-4">
-                        {[1, 2, 3, 4].map(i => (
-                            <div key={i} className="aspect-square bg-gray-100 rounded-lg overflow-hidden cursor-pointer hover:opacity-80 transition-opacity">
-                                <img src={product.image} alt={`${product.name} ${i}`} className="w-full h-full object-cover" />
-                            </div>
-                        ))}
                     </div>
-                </div>
-
-                {/* Product Info */}
-                <div className="flex-1 space-y-8">
-                    <div>
-                        <p className="text-xs font-bold text-primary uppercase tracking-widest mb-2">{product.category}</p>
-                        <h1 className="text-4xl font-bold uppercase tracking-widest mb-4">{product.name}</h1>
-                        <div className="flex items-center gap-4">
-                            <span className="text-2xl font-bold text-secondary">PKR {product.price.toLocaleString()}</span>
-                            {product.originalPrice && (
-                                <span className="text-lg text-gray-400 line-through">PKR {product.originalPrice.toLocaleString()}</span>
-                            )}
-                            {product.discount && (
-                                <span className="bg-primary text-white text-xs font-bold px-2 py-1 rounded">-{product.discount}%</span>
-                            )}
+                    {/* Center - Main Product Image */}
+                    <div className="lg:col-span-5 order-2 lg:order-2">
+                        <div className="aspect-square bg-primary overflow-hidden rounded-2xl">
+                            <img src={product.image} alt={product.name} className="w-full h-auto object-cover" />
                         </div>
                     </div>
 
-                    <p className="text-gray-600 leading-relaxed">{product.description}</p>
+                    {/* Right - Product Info & Purchase */}
+                    <div className="lg:col-span-4 order-3 bg-white rounded-2xl p-6 lg:p-8 h-fit sticky top-4">
+                        {/* Shade Selector */}
+                        {product.swatches && product.swatches.length > 0 && (
+                            <div className="mb-6 pb-6 border-b border-[var(--color-border)]">
+                                <div className="flex justify-between items-center mb-4">
+                                    <p className="text-sm font-semibold">01 Warm Rose</p>
+                                    <button className="text-xs text-[var(--color-text-secondary)] hover:text-primary">
+                                        All Shades ({product.swatches.length})
+                                    </button>
+                                </div>
+                                <div className="flex gap-2">
+                                    {product.swatches.map((swatch, idx) => (
+                                        <button
+                                            key={idx}
+                                            onClick={() => setSelectedSwatch(swatch)}
+                                            className={`w-10 h-10 rounded-full border-2 transition-all ${
+                                                selectedSwatch === swatch ? 'border-secondary scale-110' : 'border-[var(--color-border)]'
+                                            }`}
+                                            style={{ backgroundColor: swatch }}
+                                        />
+                                    ))}
+                                </div>
+                            </div>
+                        )}
 
-                    {/* Swatches */}
-                    {product.swatches && (
-                        <div>
-                            <h3 className="text-xs font-bold uppercase tracking-widest mb-4">Color: <span className="text-gray-500">{selectedSwatch}</span></h3>
-                            <div className="flex flex-wrap gap-3">
-                                {product.swatches.map(swatch => (
-                                    <button
-                                        key={swatch}
-                                        onClick={() => setSelectedSwatch(swatch)}
-                                        className={`w-10 h-10 rounded-full border-2 transition-all ${selectedSwatch === swatch ? 'border-primary scale-110' : 'border-transparent'}`}
-                                        style={{ backgroundColor: swatch }}
-                                    />
-                                ))}
+                        {/* Price */}
+                        <div className="mb-6">
+                            <div className="flex items-center gap-3 mb-2">
+                                <span className="text-2xl font-bold text-secondary">
+                                    PKR {product.price.toLocaleString()}
+                                </span>
+                                {product.originalPrice && (
+                                    <span className="text-lg text-[var(--color-text-light)] line-through">
+                                        PKR {product.originalPrice.toLocaleString()}
+                                    </span>
+                                )}
+                            </div>
+                            
+                            {/* Payment Options */}
+                            <div className="bg-purple-100 text-purple-800 px-3 py-2 rounded text-xs font-semibold inline-flex items-center gap-2">
+                                <span>💳</span>
+                                Pay in 3 Installments of Rs. {Math.round(product.price / 3)}
                             </div>
                         </div>
-                    )}
 
-                    {/* Actions */}
-                    <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                        <QuantitySelector
-                            quantity={quantity}
-                            onIncrease={() => setQuantity(q => q + 1)}
-                            onDecrease={() => setQuantity(q => q > 1 ? q - 1 : 1)}
-                        />
+                        {/* Add to Bag Button */}
                         <button
                             onClick={() => addToCart(product, quantity)}
-                            className="btn-primary flex-grow py-4"
+                            className="w-full bg-secondary text-white py-4 rounded-lg font-bold uppercase tracking-wider hover:bg-primary hover:text-secondary transition-all mb-4"
                         >
-                            Add to Bag
+                            ADD TO BAG
                         </button>
-                        <button className="p-4 border border-gray-300 rounded-full hover:bg-gray-50 transition-colors">
-                            <Heart size={24} />
-                        </button>
-                    </div>
 
-                    {/* Features */}
-                    <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 pt-8 border-t border-gray-100">
-                        <div className="flex flex-col items-center text-center gap-2">
-                            <Truck size={24} className="text-primary" />
-                            <span className="text-[10px] font-bold uppercase tracking-widest">Free Shipping</span>
-                        </div>
-                        <div className="flex flex-col items-center text-center gap-2">
-                            <RotateCcw size={24} className="text-primary" />
-                            <span className="text-[10px] font-bold uppercase tracking-widest">30 Days Return</span>
-                        </div>
-                        <div className="flex flex-col items-center text-center gap-2">
-                            <ShieldCheck size={24} className="text-primary" />
-                            <span className="text-[10px] font-bold uppercase tracking-widest">Secure Payment</span>
+                        {/* Wishlist Button */}
+                        <button className="w-full border-2 border-[var(--color-border)] py-3 rounded-lg hover:border-primary transition-colors flex items-center justify-center gap-2">
+                            <Heart size={20} />
+                        </button>
+
+                        {/* Store Availability */}
+                        <div className="mt-6 pt-6 border-t border-[var(--color-border)]">
+                            <button className="w-full text-left text-sm font-semibold text-secondary hover:text-primary transition-colors flex justify-between items-center">
+                                <span>STORE AVAILABILITY</span>
+                                <span className="text-xs underline">Change store</span>
+                            </button>
+                            <p className="text-xs text-[var(--color-text-secondary)] mt-2">
+                                Check if this product is available in your favourite store
+                            </p>
                         </div>
                     </div>
                 </div>
             </div>
+
+            {/* Tabs Section */}
+            <div className="grid grid-cols-12">
+                <div className='text-5xl col-span-3'>
+                    <div className='container text-right pr-2'>{product.name}</div>
+                </div>
+                <div className="container col-span-8 px-4">
+                    {/* Tab Headers */}
+                    <div className="border-b border-[var(--color-border)]">
+                        <div className="flex gap-8 overflow-x-auto">
+                            {tabs.map(tab => (
+                                <button
+                                    key={tab.id}
+                                    onClick={() => setActiveTab(tab.id)}
+                                    className={`py-4 px-2 text-sm font-bold uppercase tracking-wider whitespace-nowrap transition-colors ${
+                                        activeTab === tab.id
+                                            ? 'text-secondary border-b-2 border-secondary'
+                                            : 'text-[var(--color-text-secondary)] hover:text-secondary'
+                                    }`}
+                                >
+                                    {tab.label}
+                                </button>
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* Tab Content */}
+                    <div className="py-6">
+                        <div className="max-w-4xl">
+                            {activeTab === 'description' && (
+                                <div className="space-y-6">
+                                    <h2 className="text-3xl font-light mb-6">
+                                        {product.name}
+                                    </h2>
+                                    <p className="text-base leading-relaxed text-[var(--color-text-secondary)]">
+                                        {product.description}
+                                    </p>
+                                    
+                                    {/* Product Features */}
+                                    {product.features && product.features.length > 0 && (
+                                        <div className="space-y-4 mt-8">
+                                            {product.features.map((feature, index) => (
+                                                <div key={index} className="space-y-2">
+                                                    <p className="text-base leading-relaxed text-[var(--color-text-secondary)]">
+                                                        <strong className="text-secondary">{feature.title}:</strong> {feature.description}
+                                                    </p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+
+                                    {product.spf && (
+                                        <p className="text-base leading-relaxed text-[var(--color-text-secondary)]">
+                                            <strong className="text-secondary">Sun Protection:</strong> {product.spf}
+                                        </p>
+                                    )}
+                                </div>
+                            )}
+
+                            {activeTab === 'ingredients' && (
+                                <div className="space-y-6">
+                                    <h2 className="text-2xl font-bold uppercase tracking-wider text-secondary mb-6">
+                                        Key Ingredients
+                                    </h2>
+                                    {product.keyIngredients && product.keyIngredients.length > 0 ? (
+                                        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                                            {product.keyIngredients.map((ingredient, index) => (
+                                                <div key={index} className="flex items-start gap-3 p-4 bg-pink-light rounded-lg">
+                                                    <span className="text-primary font-bold">•</span>
+                                                    <p className="text-sm text-secondary font-medium">{ingredient}</p>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    ) : (
+                                        <p className="text-[var(--color-text-secondary)]">No ingredient information available.</p>
+                                    )}
+                                </div>
+                            )}
+
+                            {activeTab === 'results' && (
+                                <div className="space-y-4">
+                                    <h2 className="text-2xl font-bold uppercase tracking-wider text-secondary mb-6">
+                                        Results
+                                    </h2>
+                                    <p className="text-base leading-relaxed text-[var(--color-text-secondary)]">
+                                        Experience visible results with regular use. This product is dermatologically tested and suitable for daily application.
+                                    </p>
+                                </div>
+                            )}
+
+                            {activeTab === 'advice' && (
+                                <div className="space-y-4">
+                                    <h2 className="text-2xl font-bold uppercase tracking-wider text-secondary mb-6">
+                                        How to Use
+                                    </h2>
+                                    <p className="text-base leading-relaxed text-[var(--color-text-secondary)]">
+                                        Apply evenly to face and neck. For best results, use daily as part of your skincare routine.
+                                    </p>
+                                    {product.spf && (
+                                        <p className="text-base leading-relaxed text-[var(--color-text-secondary)]">
+                                            <strong>Sun Protection:</strong> Reapply every 2 hours when exposed to direct sunlight for optimal protection.
+                                        </p>
+                                    )}
+                                </div>
+                            )}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            {/* Product Specifications */}
+            <div className="grid grid-cols-12 bg-[var(--color-bg-light)] py-12">
+                <div className='col-span-3'>
+                    <div className='container text-right pr-2'></div>
+                </div>
+                <div className=" col-span-8">
+                    <div className="max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {product.volume && (
+                            <div className="flex flex-col items-center text-center gap-3">
+                                <Package size={32} className="text-secondary" />
+                                <p className="text-lg font-bold text-secondary">{product.volume}</p>
+                            </div>
+                        )}
+                        <div className="flex flex-col items-center text-center gap-3">
+                            <MapPin size={32} className="text-secondary" />
+                            <p className="text-sm font-semibold uppercase tracking-wider text-secondary">MADE IN ITALY</p>
+                        </div>
+                        <div className="flex flex-col items-center text-center gap-3">
+                            <Calendar size={32} className="text-secondary" />
+                            <p className="text-sm font-semibold uppercase tracking-wider text-secondary">12 MONTHS</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </div>
     );
 };

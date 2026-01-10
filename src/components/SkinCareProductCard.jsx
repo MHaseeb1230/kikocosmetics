@@ -8,9 +8,9 @@ const SkinCareProductCard = ({ product }) => {
     const discount = product.originalPrice ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 0;
 
     return (
-        <div className="min-w-[240px] md:min-w-[280px] bg-white flex flex-col">
+        <div className="min-w-[240px] md:min-w-[280px] bg- flex flex-col">
             {/* Image Container */}
-            <div className="relative aspect-square overflow-hidden bg-gray-50 mb-4">
+            <div className="relative aspect-square overflow-hidden bg-primary mb-4">
                 <Link to={`/product/${product.id}`}>
                     <img
                         src={product.image}

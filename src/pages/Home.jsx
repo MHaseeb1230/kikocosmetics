@@ -90,7 +90,7 @@ const Home = () => {
     return (
         <div className="flex flex-col">
             {/* Free Shipping Banner */}
-            {/* <div className="bg-[#212121] text-white text-center py-2 text-xs uppercase tracking-wider">
+            {/* <div className="bg-secondary text-white text-center py-2 text-xs uppercase tracking-wider">
                 Free Shipping over 20
             </div> */}
 
@@ -114,11 +114,11 @@ const Home = () => {
 
                         {/* Sale Box Overlay */}
                         {/* <div className="absolute bottom-20 left-10 md:left-20 z-10">
-                            <div className="bg-[#F8E0E0] px-8 py-6 rounded-lg max-w-sm">
-                                <h2 className="text-3xl md:text-4xl font-bold uppercase text-[#1C1B1B] mb-2 tracking-tight">
+                            <div className="bg-sale-box px-8 py-6 rounded-lg max-w-sm">
+                                <h2 className="text-3xl md:text-4xl font-bold uppercase text-secondary mb-2 tracking-tight">
                                     THE KIKO SALE
                                 </h2>
-                                <p className="text-lg md:text-xl text-[#1C1B1B] mb-4 font-medium">
+                                <p className="text-lg md:text-xl text-secondary mb-4 font-medium">
                                     30% 50% 70%
                                 </p>
                                 <Link to="/category/makeup" className="inline-block bg-black text-white px-6 py-3 rounded-md uppercase text-sm font-semibold hover:opacity-90 transition-opacity">
@@ -142,9 +142,9 @@ const Home = () => {
             </section>
 
             {/* KIKO MOST LOVED Section */}
-            <section className="bg-[#fff5f5] py-12 md:py-16">
+            <section className="bg-primary py-12 md:py-16">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-3xl md:text-4xl font-light uppercase tracking-widest text-[#1C1B1B] mb-8 text-center">
+                    <h2 className="text-3xl md:text-4xl font-light uppercase tracking-widest text-secondary mb-8 text-center">
                         <strong className="font-bold">KIKO</strong> MOST LOVED
                     </h2>
                     
@@ -153,19 +153,19 @@ const Home = () => {
                         {/* Left Arrow */}
                         <button
                             onClick={() => setProductSlideIndex((prev) => (prev - 1 + totalProductSlides) % totalProductSlides)}
-                            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white border border-gray-300 rounded-full p-2 hover:bg-gray-50 transition-colors shadow-md hidden lg:flex items-center justify-center"
+                            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white border border-[var(--color-border)] rounded-full p-2 hover:bg-[var(--color-bg-golden)] transition-colors shadow-md hidden lg:flex items-center justify-center"
                             aria-label="Previous products"
                         >
-                            <ChevronLeft size={24} className="text-[#1C1B1B]" />
+                            <ChevronLeft size={24} className="text-secondary" />
                         </button>
 
                         {/* Right Arrow */}
                         <button
                             onClick={() => setProductSlideIndex((prev) => (prev + 1) % totalProductSlides)}
-                            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white border border-gray-300 rounded-full p-2 hover:bg-gray-50 transition-colors shadow-md hidden lg:flex items-center justify-center"
+                            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white border border-[var(--color-border)] rounded-full p-2 hover:bg-[var(--color-bg-golden)] transition-colors shadow-md hidden lg:flex items-center justify-center"
                             aria-label="Next products"
                         >
-                            <ChevronRight size={24} className="text-[#1C1B1B]" />
+                            <ChevronRight size={24} className="text-secondary" />
                         </button>
 
                         {/* Slider Container */}
@@ -206,7 +206,7 @@ const Home = () => {
                                 <button
                                     key={idx}
                                     onClick={() => setProductSlideIndex(idx)}
-                                    className={`h-1 transition-all ${productSlideIndex === idx ? 'bg-[#1C1B1B] w-8' : 'bg-gray-300 w-1'}`}
+                                    className={`h-1 transition-all ${productSlideIndex === idx ? 'bg-secondary w-8' : 'bg-[var(--color-border)] w-1'}`}
                                     aria-label={`Go to slide ${idx + 1}`}
                                 />
                             ))}
@@ -214,7 +214,7 @@ const Home = () => {
                     </div>
 
                     <div className="text-center mt-8">
-                        <Link to="/category/makeup" className="text-sm font-bold uppercase tracking-widest text-[#1C1B1B] border-b-2 border-[#1C1B1B] pb-1 hover:text-primary hover:border-primary transition-colors">
+                        <Link to="/category/makeup" className="text-sm font-bold uppercase tracking-widest text-secondary border-b-2 border-secondary pb-1 hover:text-secondary hover:border-secondary transition-colors">
                             View All
                         </Link>
                     </div>
@@ -227,7 +227,7 @@ const Home = () => {
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
                         {/* Left Side - Content */}
                         <div className="flex flex-col items-center justify-center">
-                            <h2 className="text-2xl md:text-3xl font-light uppercase tracking-widest text-[#1C1B1B] mb-6">
+                            <h2 className="text-2xl md:text-3xl font-light uppercase tracking-widest text-secondary mb-6">
                                 What's new
                             </h2>
                             
@@ -239,8 +239,8 @@ const Home = () => {
                                         onClick={() => setSelectedNewProduct(idx)}
                                         className={`w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 transition-all ${
                                             selectedNewProduct === idx 
-                                                ? 'border-[#1C1B1B] scale-110' 
-                                                : 'border-gray-300 hover:border-gray-400'
+                                                ? 'border-secondary scale-110' 
+                                                : 'border-[var(--color-border)] hover:border-primary'
                                         }`}
                                     >
                                         <img
@@ -253,7 +253,7 @@ const Home = () => {
                             </div>
 
                             {/* Product Title */}
-                            <h3 className="text-3xl md:text-4xl font-light uppercase tracking-tight text-[#1C1B1B] mb-4 whitespace-pre-line leading-tight">
+                            <h3 className="text-3xl md:text-4xl font-light uppercase tracking-tight text-secondary mb-4 whitespace-pre-line leading-tight">
                                 {whatsNewProducts[selectedNewProduct].title.split('\n').map((line, idx) => (
                                     <span key={idx}>
                                         {idx === 0 || idx === 1 ? (
@@ -267,14 +267,14 @@ const Home = () => {
                             </h3>
 
                             {/* Product Description */}
-                            <p className="text-sm md:text-base text-[#1C1B1B] mb-6">
+                            <p className="text-sm md:text-base text-secondary mb-6">
                                 {whatsNewProducts[selectedNewProduct].description}
                             </p>
 
                             {/* Button */}
                             <Link 
                                 to="/category/new" 
-                                className="inline-block border border-gray-300 bg-white text-[#1C1B1B] px-6 py-3 uppercase text-xs font-bold hover:bg-gray-50 transition-colors w-fit"
+                                className="inline-block border border-gray-300 bg-white text-secondary px-6 py-3 uppercase text-xs font-bold hover:bg-[var(--color-bg-light)] transition-colors w-fit"
                             >
                                 DISCOVER THE COLLECTION
                             </Link>
@@ -336,10 +336,10 @@ const Home = () => {
                         <div className="relative inline-block mb-6">
                             <div className="absolute inset-0 bg-gradient-to-r from-blue-200 via-purple-200 to-pink-200 opacity-30 blur-2xl"></div>
                             <div className="relative">
-                                <p className="text-sm md:text-base font-light uppercase tracking-widest text-gray-600 mb-2">
+                                <p className="text-sm md:text-base font-light uppercase tracking-widest text-[var(--color-text-secondary)] mb-2">
                                     YOUR SEASON
                                 </p>
-                                <h2 style={{fontFamily: 'KIKO Pro Arabic_V01 Medium !important'}} className="text-4xl md:text-6xl font-semibold  text-[#1C1B1B]">
+                                <h2 style={{fontFamily: 'KIKO Pro Arabic_V01 Medium !important'}} className="text-4xl md:text-6xl font-semibold  text-secondary">
                                     {selectedSeason}
                                 </h2>
                             </div>
@@ -354,7 +354,7 @@ const Home = () => {
                                     className={`px-6 py-2 text-xs md:text-sm font-bold uppercase tracking-widest transition-all ${
                                         selectedSeason === season
                                             ? 'bg-gradient-to-r border border-none rounded-lg from-blue-500 to-purple-500 text-white shadow-md'
-                                            : 'bg-white text-[#1C1B1B] hover:border-gray-400'
+                                            : 'bg-white text-secondary hover:border-gray-400'
                                     }`}
                                 >
                                     {season}
@@ -368,10 +368,10 @@ const Home = () => {
                         {/* Right Arrow */}
                         <button
                             onClick={() => scrollSeasonProducts('right')}
-                            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white border border-gray-300 rounded-full p-3 hover:bg-gray-50 transition-colors shadow-md hidden md:flex items-center justify-center"
+                            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white border border-gray-300 rounded-full p-3 hover:bg-[var(--color-bg-light)] transition-colors shadow-md hidden md:flex items-center justify-center"
                             aria-label="Next products"
                         >
-                            <ChevronRight size={24} className="text-[#1C1B1B]" />
+                            <ChevronRight size={24} className="text-secondary" />
                         </button>
 
                         {/* Scrollable Product Container */}
@@ -392,16 +392,17 @@ const Home = () => {
             </section>
 
             {/* Top Categories Section */}
-            <section className="bg-white py-12 md:py-16">
+            <div className="bg-primary">
+            <section className=" py-12 md:py-16">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-2xl md:text-3xl font-light uppercase tracking-widest text-[#1C1B1B] mb-8 text-center">
+                    <h2 className="text-2xl md:text-3xl font-light uppercase tracking-widest text-secondary mb-8 text-center">
                         TOP CATEGORIES
                     </h2>
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-6 md:gap-8">
                         <Link to="/category/makeup" className="text-center group">
                             <div className="relative aspect-square mb-4 overflow-visible">
                                 {/* Blob Background */}
-                                <div className="absolute inset-0 bg-[#FDE7F3] rounded-[40%] transform rotate-[-10deg] group-hover:scale-105 transition-transform"></div>
+                                <div className="absolute inset-0 bg-accent-blue rounded-[40%] transform rotate-[-10deg] group-hover:scale-105 transition-transform"></div>
                                 <div className="relative h-full flex items-center justify-center p-4">
                                     <img 
                                         src="https://kikocosmetics.pk/cdn/shop/files/MAKE_UP_CATEGORY.jpg?v=1710412345" 
@@ -410,11 +411,11 @@ const Home = () => {
                                     />
                                 </div>
                             </div>
-                            <span className="text-sm font-bold uppercase tracking-widest text-[#1C1B1B]">LIPS</span>
+                            <span className="text-sm font-bold uppercase tracking-widest text-secondary">LIPS</span>
                         </Link>
                         <Link to="/category/makeup" className="text-center group">
                             <div className="relative aspect-square mb-4 overflow-visible">
-                                <div className="absolute inset-0 bg-[#FDE7F3] rounded-[40%] transform rotate-[5deg] group-hover:scale-105 transition-transform"></div>
+                                <div className="absolute inset-0 bg-accent-blue rounded-[40%] transform rotate-[5deg] group-hover:scale-105 transition-transform"></div>
                                 <div className="relative h-full flex items-center justify-center p-4">
                                     <img 
                                         src="https://kikocosmetics.pk/cdn/shop/files/MAKE_UP_CATEGORY.jpg?v=1710412345" 
@@ -423,11 +424,11 @@ const Home = () => {
                                     />
                                 </div>
                             </div>
-                            <span className="text-sm font-bold uppercase tracking-widest text-[#1C1B1B]">EYES</span>
+                            <span className="text-sm font-bold uppercase tracking-widest text-secondary">EYES</span>
                         </Link>
                         <Link to="/category/makeup" className="text-center group">
                             <div className="relative aspect-square mb-4 overflow-visible">
-                                <div className="absolute inset-0 bg-[#FDE7F3] rounded-[40%] transform rotate-[-8deg] group-hover:scale-105 transition-transform"></div>
+                                <div className="absolute inset-0 bg-accent-blue rounded-[40%] transform rotate-[-8deg] group-hover:scale-105 transition-transform"></div>
                                 <div className="relative h-full flex items-center justify-center p-4">
                                     <img 
                                         src="https://kikocosmetics.pk/cdn/shop/files/MAKE_UP_CATEGORY.jpg?v=1710412345" 
@@ -436,11 +437,11 @@ const Home = () => {
                                     />
                                 </div>
                             </div>
-                            <span className="text-sm font-bold uppercase tracking-widest text-[#1C1B1B]">FACE</span>
+                            <span className="text-sm font-bold uppercase tracking-widest text-secondary">FACE</span>
                         </Link>
                         <Link to="/category/skincare" className="text-center group">
                             <div className="relative aspect-square mb-4 overflow-visible">
-                                <div className="absolute inset-0 bg-[#FDE7F3] rounded-[40%] transform rotate-[6deg] group-hover:scale-105 transition-transform"></div>
+                                <div className="absolute inset-0 bg-accent-blue rounded-[40%] transform rotate-[6deg] group-hover:scale-105 transition-transform"></div>
                                 <div className="relative h-full flex items-center justify-center p-4">
                                     <img 
                                         src="https://kikocosmetics.pk/cdn/shop/files/SKIN_CARE_CATEGORY.jpg?v=1710412345" 
@@ -449,11 +450,11 @@ const Home = () => {
                                     />
                                 </div>
                             </div>
-                            <span className="text-sm font-bold uppercase tracking-widest text-[#1C1B1B]">SKIN CARE</span>
+                            <span className="text-sm font-bold uppercase tracking-widest text-secondary">SKIN CARE</span>
                         </Link>
                         <Link to="/category/accessories" className="text-center group">
                             <div className="relative aspect-square mb-4 overflow-visible">
-                                <div className="absolute inset-0 bg-[#FDE7F3] rounded-[40%] transform rotate-[-5deg] group-hover:scale-105 transition-transform"></div>
+                                <div className="absolute inset-0 bg-accent-blue rounded-[40%] transform rotate-[-5deg] group-hover:scale-105 transition-transform"></div>
                                 <div className="relative h-full flex items-center justify-center p-4">
                                     <img 
                                         src="https://kikocosmetics.pk/cdn/shop/files/ACCESSORIES_CATEGORY.jpg?v=1710412345" 
@@ -462,16 +463,16 @@ const Home = () => {
                                     />
                                 </div>
                             </div>
-                            <span className="text-sm font-bold uppercase tracking-widest text-[#1C1B1B]">ACCESSORIES</span>
+                            <span className="text-sm font-bold uppercase tracking-widest text-secondary">ACCESSORIES</span>
                         </Link>
                     </div>
                 </div>
             </section>
 
             {/* Shop Skin Care Section */}
-            <section className="bg-[#FFF5F5] py-12 md:py-16">
+            <section className=" py-12 md:py-16">
                 <div className="container mx-auto px-4">
-                    <h2 className="text-2xl md:text-3xl font-light uppercase tracking-widest text-[#1C1B1B] mb-8 text-center">
+                    <h2 className="text-2xl md:text-3xl font-light uppercase tracking-widest text-secondary mb-8 text-center">
                         Shop <strong className="font-bold">Skin Care</strong>
                     </h2>
                     
@@ -485,10 +486,10 @@ const Home = () => {
                                     container.scrollBy({ left: 300, behavior: 'smooth' });
                                 }
                             }}
-                            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white border border-gray-300 rounded-full p-3 hover:bg-gray-50 transition-colors shadow-md hidden md:flex items-center justify-center"
+                            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white border border-gray-300 rounded-full p-3 hover:bg-[var(--color-bg-light)] transition-colors shadow-md hidden md:flex items-center justify-center"
                             aria-label="Next products"
                         >
-                            <ChevronRight size={24} className="text-[#1C1B1B]" />
+                            <ChevronRight size={24} className="text-secondary" />
                         </button>
 
                         {/* Scrollable Product Container */}
@@ -507,13 +508,13 @@ const Home = () => {
                     </div>
 
                     <div className="text-center mt-8">
-                        <Link to="/category/skincare" className="text-sm font-bold uppercase tracking-widest text-[#1C1B1B] border-b-2 border-[#1C1B1B] pb-1 hover:text-primary hover:border-primary transition-colors">
+                        <Link to="/category/skincare" className="text-sm font-bold uppercase tracking-widest text-secondary border-b-2 border-secondary pb-1 hover:text-primary hover:border-primary transition-colors">
                             VIEW ALL
                         </Link>
                     </div>
                 </div>
             </section>
-
+            </div>
             {/* Our Brand Section */}
             <section className="bg-white py-12 md:py-16 shadow-md mb-[1px]">
                 <div className="container mx-auto px-4">
@@ -534,13 +535,13 @@ const Home = () => {
                         <div className="order-1 lg:order-2 flex flex-col justify-center">
                             {/* OUR BRAND Badge */}
                             <div className="mb-6">
-                                <span className="inline-block bg-[#FDE7F3] text-[#1C1B1B] px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest">
+                                <span className="inline-block bg-[#FDE7F3] text-secondary px-4 py-2 rounded-lg text-xs font-bold uppercase tracking-widest">
                                     OUR BRAND
                                 </span>
                             </div>
 
                             {/* Main Heading */}
-                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[#1C1B1B] mb-6 leading-tight">
+                            <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-secondary mb-6 leading-tight">
                                 Art · Beauty · Joy
                             </h2>
 
@@ -556,9 +557,9 @@ const Home = () => {
                         {/* Free Shipping */}
                         <div className="text-center">
                             <div className="flex justify-center mb-4">
-                                <Truck size={32} className="text-[#1C1B1B]" strokeWidth={1.5} />
+                                <Truck size={32} className="text-secondary" strokeWidth={1.5} />
                             </div>
-                            <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#1C1B1B]">
+                            <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-secondary">
                                 FREE SHIPPING FOR ORDERS OVER 5000PKR
                             </h4>
                         </div>
@@ -566,9 +567,9 @@ const Home = () => {
                         {/* Secure Payments */}
                         <div className="text-center">
                             <div className="flex justify-center mb-4">
-                                <ShieldCheck size={32} className="text-[#1C1B1B]" strokeWidth={1.5} />
+                                <ShieldCheck size={32} className="text-secondary" strokeWidth={1.5} />
                             </div>
-                            <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#1C1B1B]">
+                            <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-secondary">
                                 SECURE PAYMENTS PURCHASES ARE SECURE AND GUARANTEED
                             </h4>
                         </div>
@@ -576,9 +577,9 @@ const Home = () => {
                         {/* Easy Exchange */}
                         <div className="text-center">
                             <div className="flex justify-center mb-4">
-                                <RotateCcw size={32} className="text-[#1C1B1B]" strokeWidth={1.5} />
+                                <RotateCcw size={32} className="text-secondary" strokeWidth={1.5} />
                             </div>
-                            <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-[#1C1B1B]">
+                            <h4 className="text-xs md:text-sm font-bold uppercase tracking-widest text-secondary">
                                 EASY EXCHANGE UP TO 7 DAYS AFTER ORDER DELIVERY
                             </h4>
                         </div>

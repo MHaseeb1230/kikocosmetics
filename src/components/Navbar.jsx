@@ -2,7 +2,7 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, User, Heart, ShoppingBag, Menu, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import logo from '../assets/logos/Needs Logo.png';
+import logo from '../assets/logos/needslogo1.jpeg';
 import logoMobile from '../assets/logos/Logo.webp';
 
 const Navbar = () => {
@@ -143,8 +143,8 @@ const Navbar = () => {
                     <button className="lg:hidden" onClick={() => setIsMenuOpen(true)}>
                         <Menu size={24} />
                     </button>
-                    <div className="hidden lg:flex items-center border-b border-gray-300 pb-1 w-64">
-                        <Search size={18} className="text-gray-500" />
+                    <div className="hidden lg:flex items-center border-b border-[var(--color-border)] pb-1 w-64">
+                        <Search size={18} className="text-[var(--color-text-secondary)]" />
                         <input
                             type="text"
                             placeholder="Search"
@@ -158,7 +158,7 @@ const Navbar = () => {
                         <img
                             src={logo}
                             alt="Kiko Milano"
-                            className="h-7"
+                            className="h-7 w-15"
                         />
                     </Link>
                 </div>
@@ -182,7 +182,7 @@ const Navbar = () => {
             </div>
 
             {/* Category Navigation */}
-            <div className="hidden lg:flex justify-center bg-pink-light py-3 border-t border-b border-pink-200 relative">
+            <div className="hidden lg:flex justify-center bg-pink-light py-3 border-t border-b border-[var(--color-border-light)] relative">
                 <div className="flex gap-8 text-[11px] font-bold uppercase tracking-widest">
                     <div 
                         className="relative"
@@ -199,10 +199,10 @@ const Navbar = () => {
                                 onMouseLeave={handleDropdownMouseLeave}
                             >
                                 {/* Left Side - Categories */}
-                                <div className="bg-gray-50 py-4 min-w-[220px]">
+                                <div className="bg-[var(--color-bg-golden)] py-4 min-w-[220px]">
                                     <Link 
                                         to="/category/makeup" 
-                                        className="block px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-700 hover:bg-white hover:text-primary transition-colors"
+                                        className="block px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] hover:bg-white hover:text-primary transition-colors"
                                     >
                                         Go to Make Up
                                     </Link>
@@ -212,7 +212,7 @@ const Navbar = () => {
                                             onMouseEnter={() => setActiveSubcategory(idx)}
                                             className="relative"
                                         >
-                                            <div className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-800 hover:bg-white hover:text-primary transition-colors cursor-pointer">
+                                            <div className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-primary)] hover:bg-white hover:text-primary transition-colors cursor-pointer">
                                                 {category.title}
                                             </div>
                                         </div>
@@ -222,11 +222,11 @@ const Navbar = () => {
                                 {/* Right Side - Items */}
                                 {activeSubcategory !== null && menuItems.makeup.subcategories[activeSubcategory] && (
                                     <div 
-                                        className="bg-white py-4 px-6 min-w-[280px] border-l border-gray-200 animate-slideIn"
+                                        className="bg-white py-4 px-6 min-w-[280px] border-l border-[var(--color-border)] animate-slideIn"
                                         onMouseEnter={() => setActiveSubcategory(activeSubcategory)}
                                     >
                                         <div>
-                                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-3 pb-2 border-b border-gray-200">
+                                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] mb-3 pb-2 border-b border-[var(--color-border)]">
                                                 {menuItems.makeup.subcategories[activeSubcategory].title}
                                             </h3>
                                             <ul className="space-y-1">
@@ -234,7 +234,7 @@ const Navbar = () => {
                                                     <li key={itemIdx}>
                                                         <Link 
                                                             to={`/category/makeup/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                                                            className="block py-1.5 text-xs text-gray-600 hover:text-primary transition-colors uppercase tracking-wide"
+                                                            className="block py-1.5 text-xs text-[var(--color-text-secondary)] hover:text-primary transition-colors uppercase tracking-wide"
                                                         >
                                                             {item}
                                                         </Link>
@@ -263,10 +263,10 @@ const Navbar = () => {
                                 onMouseLeave={handleDropdownMouseLeave}
                             >
                                 {/* Left Side - Categories */}
-                                <div className="bg-gray-50 py-4 min-w-[220px]">
+                                <div className="bg-[var(--color-bg-golden)] py-4 min-w-[220px]">
                                     <Link 
                                         to="/category/skincare" 
-                                        className="block px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-700 hover:bg-white hover:text-primary transition-colors"
+                                        className="block px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] hover:bg-white hover:text-primary transition-colors"
                                     >
                                         Go to Skin Care
                                     </Link>
@@ -276,7 +276,7 @@ const Navbar = () => {
                                             onMouseEnter={() => setActiveSubcategory(idx)}
                                             className="relative"
                                         >
-                                            <div className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-800 hover:bg-white hover:text-primary transition-colors cursor-pointer">
+                                            <div className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-primary)] hover:bg-white hover:text-primary transition-colors cursor-pointer">
                                                 {category.title}
                                             </div>
                                         </div>
@@ -286,11 +286,11 @@ const Navbar = () => {
                                 {/* Right Side - Items */}
                                 {activeSubcategory !== null && menuItems.skincare.subcategories[activeSubcategory] && (
                                     <div 
-                                        className="bg-white py-4 px-6 min-w-[280px] border-l border-gray-200 animate-slideIn"
+                                        className="bg-white py-4 px-6 min-w-[280px] border-l border-[var(--color-border)] animate-slideIn"
                                         onMouseEnter={() => setActiveSubcategory(activeSubcategory)}
                                     >
                                         <div>
-                                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-3 pb-2 border-b border-gray-200">
+                                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] mb-3 pb-2 border-b border-[var(--color-border)]">
                                                 {menuItems.skincare.subcategories[activeSubcategory].title}
                                             </h3>
                                             <ul className="space-y-1">
@@ -298,7 +298,7 @@ const Navbar = () => {
                                                     <li key={itemIdx}>
                                                         <Link 
                                                             to={`/category/skincare/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                                                            className="block py-1.5 text-xs text-gray-600 hover:text-primary transition-colors uppercase tracking-wide"
+                                                            className="block py-1.5 text-xs text-[var(--color-text-secondary)] hover:text-primary transition-colors uppercase tracking-wide"
                                                         >
                                                             {item}
                                                         </Link>
@@ -327,10 +327,10 @@ const Navbar = () => {
                                 onMouseLeave={handleDropdownMouseLeave}
                             >
                                 {/* Left Side - Categories */}
-                                <div className="bg-gray-50 py-4 min-w-[220px]">
+                                <div className="bg-[var(--color-bg-golden)] py-4 min-w-[220px]">
                                     <Link 
                                         to="/category/accessories" 
-                                        className="block px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-700 hover:bg-white hover:text-primary transition-colors"
+                                        className="block px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] hover:bg-white hover:text-primary transition-colors"
                                     >
                                         Go to Accessories
                                     </Link>
@@ -340,7 +340,7 @@ const Navbar = () => {
                                             onMouseEnter={() => setActiveSubcategory(idx)}
                                             className="relative"
                                         >
-                                            <div className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-800 hover:bg-white hover:text-primary transition-colors cursor-pointer">
+                                            <div className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-primary)] hover:bg-white hover:text-primary transition-colors cursor-pointer">
                                                 {category.title}
                                             </div>
                                         </div>
@@ -350,11 +350,11 @@ const Navbar = () => {
                                 {/* Right Side - Items */}
                                 {activeSubcategory !== null && menuItems.accessories.subcategories[activeSubcategory] && (
                                     <div 
-                                        className="bg-white py-4 px-6 min-w-[280px] border-l border-gray-200 animate-slideIn"
+                                        className="bg-white py-4 px-6 min-w-[280px] border-l border-[var(--color-border)] animate-slideIn"
                                         onMouseEnter={() => setActiveSubcategory(activeSubcategory)}
                                     >
                                         <div>
-                                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-3 pb-2 border-b border-gray-200">
+                                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] mb-3 pb-2 border-b border-[var(--color-border)]">
                                                 {menuItems.accessories.subcategories[activeSubcategory].title}
                                             </h3>
                                             <ul className="space-y-1">
@@ -362,7 +362,7 @@ const Navbar = () => {
                                                     <li key={itemIdx}>
                                                         <Link 
                                                             to={`/category/accessories/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                                                            className="block py-1.5 text-xs text-gray-600 hover:text-primary transition-colors uppercase tracking-wide"
+                                                            className="block py-1.5 text-xs text-[var(--color-text-secondary)] hover:text-primary transition-colors uppercase tracking-wide"
                                                         >
                                                             {item}
                                                         </Link>
@@ -394,10 +394,10 @@ const Navbar = () => {
                                 onMouseLeave={handleDropdownMouseLeave}
                             >
                                 {/* Left Side - Categories */}
-                                <div className="bg-gray-50 py-4 min-w-[220px]">
+                                <div className="bg-[var(--color-bg-golden)] py-4 min-w-[220px]">
                                     <Link 
                                         to="/category/hair" 
-                                        className="block px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-700 hover:bg-white hover:text-primary transition-colors"
+                                        className="block px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] hover:bg-white hover:text-primary transition-colors"
                                     >
                                         Go to Hair
                                     </Link>
@@ -407,7 +407,7 @@ const Navbar = () => {
                                             onMouseEnter={() => setActiveSubcategory(idx)}
                                             className="relative"
                                         >
-                                            <div className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-gray-800 hover:bg-white hover:text-primary transition-colors cursor-pointer">
+                                            <div className="px-6 py-2 text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-primary)] hover:bg-white hover:text-primary transition-colors cursor-pointer">
                                                 {category.title}
                                             </div>
                                         </div>
@@ -417,11 +417,11 @@ const Navbar = () => {
                                 {/* Right Side - Items */}
                                 {activeSubcategory !== null && menuItems.hair.subcategories[activeSubcategory] && (
                                     <div 
-                                        className="bg-white py-4 px-6 min-w-[280px] border-l border-gray-200 animate-slideIn"
+                                        className="bg-white py-4 px-6 min-w-[280px] border-l border-[var(--color-border)] animate-slideIn"
                                         onMouseEnter={() => setActiveSubcategory(activeSubcategory)}
                                     >
                                         <div>
-                                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-gray-700 mb-3 pb-2 border-b border-gray-200">
+                                            <h3 className="text-[11px] font-bold uppercase tracking-wider text-[var(--color-text-secondary)] mb-3 pb-2 border-b border-[var(--color-border)]">
                                                 {menuItems.hair.subcategories[activeSubcategory].title}
                                             </h3>
                                             <ul className="space-y-1">
@@ -429,7 +429,7 @@ const Navbar = () => {
                                                     <li key={itemIdx}>
                                                         <Link 
                                                             to={`/category/hair/${item.toLowerCase().replace(/\s+/g, '-')}`}
-                                                            className="block py-1.5 text-xs text-gray-600 hover:text-primary transition-colors uppercase tracking-wide"
+                                                            className="block py-1.5 text-xs text-[var(--color-text-secondary)] hover:text-primary transition-colors uppercase tracking-wide"
                                                         >
                                                             {item}
                                                         </Link>

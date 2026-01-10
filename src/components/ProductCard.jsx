@@ -7,8 +7,8 @@ const ProductCard = ({ product }) => {
     const discount = product.originalPrice ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 0;
 
     return (
-        <div className="group relative bg-[#fff5f5]">
-            <div className="relative aspect-square overflow-hidden bg-[#fff5f5]">
+        <div className="group relative bg-primary">
+            <div className="relative aspect-square overflow-hidden bg-primary">
                 <Link to={`/product/${product.id}`}>
                     <img
                         src={product.image}
@@ -19,13 +19,13 @@ const ProductCard = ({ product }) => {
 
                 {product.isSoldOut && (
                     <div className="absolute inset-0 bg-white/30 flex items-center justify-center">
-                        <span className="text-sm font-bold uppercase tracking-widest text-[#1C1B1B]">Sold out</span>
+                        <span className="text-sm font-bold uppercase tracking-widest text-secondary">Sold out</span>
                     </div>
                 )}
             </div>
 
             <div className="mt-3 px-1">
-                <h3 className="text-[10px] font-normal uppercase tracking-wider text-[#1C1B1B] mb-2 leading-tight">
+                <h3 className="text-[10px] font-normal uppercase tracking-wider text-secondary mb-2 leading-tight">
                     <Link to={`/product/${product.id}`} className="hover:text-primary transition-colors">
                         {product.name}
                     </Link>
@@ -34,24 +34,24 @@ const ProductCard = ({ product }) => {
                     {product.originalPrice && product.originalPrice > product.price ? (
                         <>
                             <div className="flex items-center gap-2">
-                                <span className="text-[10px] text-gray-500 line-through">Regular price</span>
-                                <span className="text-[10px] text-gray-500 line-through">PKR {product.originalPrice.toLocaleString()}</span>
+                                <span className="text-[10px] text-[var(--color-text-secondary)] line-through">Regular price</span>
+                                <span className="text-[10px] text-[var(--color-text-secondary)] line-through">PKR {product.originalPrice.toLocaleString()}</span>
                             </div>
                             <div className="flex items-center gap-2">
-                                <span className="text-[10px] font-semibold text-[#1C1B1B]">Sale price</span>
-                                <span className="text-[10px] font-semibold text-[#1C1B1B]">PKR {product.price.toLocaleString()}</span>
+                                <span className="text-[10px] font-semibold text-secondary">Sale price</span>
+                                <span className="text-[10px] font-semibold text-secondary">PKR {product.price.toLocaleString()}</span>
                             </div>
-                            <div className="text-[9px] text-gray-500">
+                            <div className="text-[9px] text-[var(--color-text-secondary)]">
                                 Unit price / per
                             </div>
                         </>
                     ) : (
                         <>
                             <div className="flex items-center gap-2">
-                                <span className="text-[10px] text-gray-500">Regular price</span>
-                                <span className="text-[10px] text-gray-500">PKR {product.price.toLocaleString()}</span>
+                                <span className="text-[10px] text-[var(--color-text-secondary)]">Regular price</span>
+                                <span className="text-[10px] text-[var(--color-text-secondary)]">PKR {product.price.toLocaleString()}</span>
                             </div>
-                            <div className="text-[9px] text-gray-500">
+                            <div className="text-[9px] text-[var(--color-text-secondary)]">
                                 Unit price / per
                             </div>
                         </>
