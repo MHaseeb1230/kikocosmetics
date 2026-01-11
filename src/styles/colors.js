@@ -14,7 +14,7 @@ const colors = {
   // PRIMARY BRAND COLORS
   // ============================================
   brand: {
-    primary: '#e8be36',      // Golden/Yellow - Main brand color
+    primary: '#fff5f5',      // Golden/Yellow - Main brand color
     secondary: '#232323',    // Dark Gray/Black - Secondary brand color
   },
 

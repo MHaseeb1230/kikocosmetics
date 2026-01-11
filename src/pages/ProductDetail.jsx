@@ -58,7 +58,7 @@ const ProductDetail = () => {
                     </div>
                     {/* Center - Main Product Image */}
                     <div className="lg:col-span-5 order-2 lg:order-2">
-                        <div className="aspect-square bg-primary overflow-hidden rounded-2xl">
+                        <div className="aspect-square bg-brand-primary overflow-hidden rounded-2xl">
                             <img src={product.image} alt={product.name} className="w-full h-auto object-cover" />
                         </div>
                     </div>
@@ -137,14 +137,14 @@ const ProductDetail = () => {
             </div>
 
             {/* Tabs Section */}
-            <div className="grid grid-cols-12">
-                <div className='text-5xl col-span-3'>
+            <div className="grid grid-cols-1 lg:grid-cols-12">
+                <div className='text-5xl col-span-3 hidden lg:block'>
                     <div className='container text-right pr-2'>{product.name}</div>
                 </div>
                 <div className="container col-span-8 px-4">
                     {/* Tab Headers */}
                     <div className="border-b border-[var(--color-border)]">
-                        <div className="flex gap-8 overflow-x-auto">
+                        <div className="flex gap-8 overflow-x-auto ">
                             {tabs.map(tab => (
                                 <button
                                     key={tab.id}
@@ -246,28 +246,28 @@ const ProductDetail = () => {
             </div>
 
             {/* Product Specifications */}
-            <div className="grid grid-cols-12 bg-[var(--color-bg-light)] py-12">
-                <div className='col-span-3'>
+            <div className="grid lg:grid-cols-12 bg-[var(--color-bg-light)] py-12">
+                <div className='col-span-3 hidden lg:block'>
                     <div className='container text-right pr-2'></div>
                 </div>
-                <div className=" col-span-8">
-                    <div className="max-w-4xl grid grid-cols-1 md:grid-cols-3 gap-8">
-                        {product.volume && (
-                            <div className="flex flex-col items-center text-center gap-3">
-                                <Package size={32} className="text-secondary" />
-                                <p className="text-lg font-bold text-secondary">{product.volume}</p>
-                            </div>
-                        )}
-                        <div className="flex flex-col items-center text-center gap-3">
-                            <MapPin size={32} className="text-secondary" />
-                            <p className="text-sm font-semibold uppercase tracking-wider text-secondary">MADE IN ITALY</p>
-                        </div>
-                        <div className="flex flex-col items-center text-center gap-3">
-                            <Calendar size={32} className="text-secondary" />
-                            <p className="text-sm font-semibold uppercase tracking-wider text-secondary">12 MONTHS</p>
-                        </div>
-                    </div>
-                </div>
+<div className=" lg:col-span-8">
+                   <div className="max-w-4xl grid grid-cols-3 gap-4 md:gap-8">
+                       {product.volume && (
+                           <div className="flex flex-col items-center text-center gap-2 md:gap-3">
+                               <Package size={24} className="text-secondary md:w-8 md:h-8" />
+                               <p className="text-xs md:text-lg font-bold text-secondary">{product.volume}</p>
+                           </div>
+                       )}
+                       <div className="flex flex-col items-center text-center gap-2 md:gap-3">
+                           <MapPin size={24} className="text-secondary md:w-8 md:h-8" />
+                           <p className="text-[10px] md:text-sm font-semibold uppercase tracking-wider text-secondary">MADE IN ITALY</p>
+                       </div>
+                       <div className="flex flex-col items-center text-center gap-2 md:gap-3">
+                           <Calendar size={24} className="text-secondary md:w-8 md:h-8" />
+                           <p className="text-[10px] md:text-sm font-semibold uppercase tracking-wider text-secondary">12 MONTHS</p>
+                       </div>
+                   </div>
+               </div>
             </div>
 
         </div>

@@ -15,6 +15,13 @@ import hero3 from '../assets/hero/hero3.jpg';
 import hero4 from '../assets/hero/hero4.jpg';
 import hero5 from '../assets/hero/hero5.jpg';
 
+// Import top categories images
+import lipsImg from '../assets/topcategories/lips.avif';
+import eyesImg from '../assets/topcategories/eyes.avif';
+import faceImg from '../assets/topcategories/face.avif';
+import skincareImg from '../assets/topcategories/skincare.avif';
+import accessoriesImg from '../assets/topcategories/accessories.webp';
+
 const heroImages = [
     hero1,
     hero5,
@@ -147,7 +154,7 @@ const Home = () => {
             </section>
 
             {/* KIKO MOST LOVED Section */}
-            <section className="bg-primary py-12 md:py-16">
+            <section className="bg-brand-primary py-12 md:py-16">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl md:text-4xl font-light uppercase tracking-widest text-secondary mb-8 text-center">
                         <strong className="font-bold">KIKO</strong> MOST LOVED
@@ -407,10 +414,10 @@ const Home = () => {
                         <Link to="/category/makeup" className="text-center group">
                             <div className="relative aspect-square mb-4 overflow-visible">
                                 {/* Blob Background */}
-                                <div className="absolute inset-0 bg-accent-blue rounded-[40%] transform rotate-[-10deg] group-hover:scale-105 transition-transform"></div>
+                                <div className="absolute inset-0 rounded-[40%] transform rotate-[-10deg] group-hover:scale-105 transition-transform"></div>
                                 <div className="relative h-full flex items-center justify-center p-4">
                                     <img 
-                                        src="https://kikocosmetics.pk/cdn/shop/files/MAKE_UP_CATEGORY.jpg?v=1710412345" 
+                                        src={lipsImg}
                                         alt="LIPS" 
                                         className="w-full h-full object-contain relative z-10" 
                                     />
@@ -420,10 +427,10 @@ const Home = () => {
                         </Link>
                         <Link to="/category/makeup" className="text-center group">
                             <div className="relative aspect-square mb-4 overflow-visible">
-                                <div className="absolute inset-0 bg-accent-blue rounded-[40%] transform rotate-[5deg] group-hover:scale-105 transition-transform"></div>
+                                <div className="absolute inset-0 rounded-[40%] transform rotate-[5deg] group-hover:scale-105 transition-transform"></div>
                                 <div className="relative h-full flex items-center justify-center p-4">
                                     <img 
-                                        src="https://kikocosmetics.pk/cdn/shop/files/MAKE_UP_CATEGORY.jpg?v=1710412345" 
+                                        src={eyesImg}
                                         alt="EYES" 
                                         className="w-full h-full object-contain relative z-10" 
                                     />
@@ -433,10 +440,10 @@ const Home = () => {
                         </Link>
                         <Link to="/category/makeup" className="text-center group">
                             <div className="relative aspect-square mb-4 overflow-visible">
-                                <div className="absolute inset-0 bg-accent-blue rounded-[40%] transform rotate-[-8deg] group-hover:scale-105 transition-transform"></div>
+                                <div className="absolute inset-0 rounded-[40%] transform rotate-[-8deg] group-hover:scale-105 transition-transform"></div>
                                 <div className="relative h-full flex items-center justify-center p-4">
                                     <img 
-                                        src="https://kikocosmetics.pk/cdn/shop/files/MAKE_UP_CATEGORY.jpg?v=1710412345" 
+                                        src={faceImg}
                                         alt="FACE" 
                                         className="w-full h-full object-contain relative z-10" 
                                     />
@@ -446,10 +453,10 @@ const Home = () => {
                         </Link>
                         <Link to="/category/skincare" className="text-center group">
                             <div className="relative aspect-square mb-4 overflow-visible">
-                                <div className="absolute inset-0 bg-accent-blue rounded-[40%] transform rotate-[6deg] group-hover:scale-105 transition-transform"></div>
+                                <div className="absolute inset-0 rounded-[40%] transform rotate-[6deg] group-hover:scale-105 transition-transform"></div>
                                 <div className="relative h-full flex items-center justify-center p-4">
                                     <img 
-                                        src="https://kikocosmetics.pk/cdn/shop/files/SKIN_CARE_CATEGORY.jpg?v=1710412345" 
+                                        src={skincareImg}
                                         alt="SKIN CARE" 
                                         className="w-full h-full object-contain relative z-10" 
                                     />
@@ -459,10 +466,10 @@ const Home = () => {
                         </Link>
                         <Link to="/category/accessories" className="text-center group">
                             <div className="relative aspect-square mb-4 overflow-visible">
-                                <div className="absolute inset-0 bg-accent-blue rounded-[40%] transform rotate-[-5deg] group-hover:scale-105 transition-transform"></div>
+                                <div className="absolute inset-0 rounded-[40%] transform rotate-[-5deg] group-hover:scale-105 transition-transform"></div>
                                 <div className="relative h-full flex items-center justify-center p-4">
                                     <img 
-                                        src="https://kikocosmetics.pk/cdn/shop/files/ACCESSORIES_CATEGORY.jpg?v=1710412345" 
+                                        src={accessoriesImg}
                                         alt="ACCESSORIES" 
                                         className="w-full h-full object-contain relative z-10" 
                                     />
