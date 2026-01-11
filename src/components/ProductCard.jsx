@@ -1,14 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import { Heart } from 'lucide-react';
 
 const ProductCard = ({ product }) => {
     const { addToCart } = useCart();
     const discount = product.originalPrice ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 0;
 
     return (
-        <div className="group relative bg-primary">
-            <div className="relative aspect-square overflow-hidden bg-primary">
+        <div className="group relative bg-[#F8F8F8]">
+            {/* Discount Badge */}
+            {discount > 0 && (
+                <div className="absolute top-2 left-2 bg-pink-300 text-white text-xs font-bold px-2 py-1 rounded z-10">
+                    -{discount}%
+                </div>
+            )}
+
+            <div className="relative aspect-square overflow-hidden bg-[#F8F8F8]">
                 <Link to={`/product/${product.id}`}>
                     <img
                         src={product.image}
@@ -24,38 +32,60 @@ const ProductCard = ({ product }) => {
                 )}
             </div>
 
-            <div className="mt-3 px-1">
-                <h3 className="text-[10px] font-normal uppercase tracking-wider text-secondary mb-2 leading-tight">
+            <div className="mt-4 px-3 pb-3">
+                {/* Product Description */}
+                <p className="text-xs text-[var(--color-text-secondary)] mb-1">
+                    {product.category || 'Product'}
+                </p>
+
+                {/* Product Name */}
+                <h3 className="text-sm font-normal text-secondary mb-3 leading-tight min-h-[40px]">
                     <Link to={`/product/${product.id}`} className="hover:text-primary transition-colors">
                         {product.name}
                     </Link>
                 </h3>
-                <div className="flex flex-col gap-1">
-                    {product.originalPrice && product.originalPrice > product.price ? (
-                        <>
-                            <div className="flex items-center gap-2">
-                                <span className="text-[10px] text-[var(--color-text-secondary)] line-through">Regular price</span>
-                                <span className="text-[10px] text-[var(--color-text-secondary)] line-through">PKR {product.originalPrice.toLocaleString()}</span>
-                            </div>
-                            <div className="flex items-center gap-2">
-                                <span className="text-[10px] font-semibold text-secondary">Sale price</span>
-                                <span className="text-[10px] font-semibold text-secondary">PKR {product.price.toLocaleString()}</span>
-                            </div>
-                            <div className="text-[9px] text-[var(--color-text-secondary)]">
-                                Unit price / per
-                            </div>
-                        </>
-                    ) : (
-                        <>
-                            <div className="flex items-center gap-2">
-                                <span className="text-[10px] text-[var(--color-text-secondary)]">Regular price</span>
-                                <span className="text-[10px] text-[var(--color-text-secondary)]">PKR {product.price.toLocaleString()}</span>
-                            </div>
-                            <div className="text-[9px] text-[var(--color-text-secondary)]">
-                                Unit price / per
-                            </div>
-                        </>
+
+                {/* Price */}
+                <div className="flex items-center gap-2 mb-3">
+                    <span className="text-base font-bold text-secondary">
+                        PKR {product.price.toLocaleString()}
+                    </span>
+                    {product.originalPrice && product.originalPrice > product.price && (
+                        <span className="text-sm text-[var(--color-text-light)] line-through">
+                            PKR {product.originalPrice.toLocaleString()}
+                        </span>
                     )}
+                </div>
+
+                {/* Swatches */}
+                {product.swatches && product.swatches.length > 0 && (
+                    <div className="flex items-center gap-1 mb-3">
+                        {product.swatches.slice(0, 4).map((swatch, idx) => (
+                            <div
+                                key={idx}
+                                className="w-6 h-6 rounded-full border border-gray-300"
+                                style={{ backgroundColor: swatch }}
+                            />
+                        ))}
+                        {product.swatches.length > 4 && (
+                            <span className="text-xs text-[var(--color-text-secondary)] ml-1">
+                                + {product.swatches.length - 4}
+                            </span>
+                        )}
+                    </div>
+                )}
+
+                {/* Action Buttons */}
+                <div className="flex items-center gap-2">
+                    <button
+                        onClick={() => addToCart(product, 1)}
+                        className="flex-1 bg-secondary text-white text-xs font-bold uppercase tracking-wider py-2.5 rounded hover:bg-primary hover:text-secondary transition-all"
+                    >
+                        ADD TO BAG
+                    </button>
+                    <button className="w-10 h-10 border-2 border-[var(--color-border)] rounded flex items-center justify-center hover:border-primary transition-colors">
+                        <Heart size={18} />
+                    </button>
                 </div>
             </div>
         </div>

@@ -3,7 +3,8 @@ import { useParams } from 'react-router-dom';
 import mockData from '../data/mockData.js';
 import { useCart } from '../context/CartContext';
 import QuantitySelector from '../components/QuantitySelector';
-import { Heart, Share2, ShieldCheck, Truck, RotateCcw, Package, MapPin, Calendar } from 'lucide-react';
+import ProductCard from '../components/ProductCard';
+import { Heart, Share2, ShieldCheck, Truck, RotateCcw, Package, MapPin, Calendar, ChevronLeft, ChevronRight } from 'lucide-react';
 
 const ProductDetail = () => {
     const { id } = useParams();
@@ -105,23 +106,25 @@ const ProductDetail = () => {
                             {/* Payment Options */}
                             <div className="bg-purple-100 text-purple-800 px-3 py-2 rounded text-xs font-semibold inline-flex items-center gap-2">
                                 <span>💳</span>
-                                Pay in 3 Installments of Rs. {Math.round(product.price / 3)}
+                                Top Rated Seller Product
                             </div>
                         </div>
 
                         {/* Add to Bag Button */}
+                        <div className='flex justify-between items-center gap-5'>
                         <button
                             onClick={() => addToCart(product, quantity)}
-                            className="w-full bg-secondary text-white py-4 rounded-lg font-bold uppercase tracking-wider hover:bg-primary hover:text-secondary transition-all mb-4"
+                            className="w-full bg-secondary text-white py-[13px] rounded-lg font-bold uppercase tracking-wider hover:bg-primary hover:text-secondary transition-all"
                         >
                             ADD TO BAG
                         </button>
 
                         {/* Wishlist Button */}
-                        <button className="w-full border-2 border-[var(--color-border)] py-3 rounded-lg hover:border-primary transition-colors flex items-center justify-center gap-2">
+                        
+                        <button className="w-20 border-2 border-[var(--color-border)] py-3 rounded-lg hover:border-primary transition-colors flex items-center justify-center gap-2">
                             <Heart size={20} />
                         </button>
-
+                        </div>
                         {/* Store Availability */}
                         <div className="mt-6 pt-6 border-t border-[var(--color-border)]">
                             <button className="w-full text-left text-sm font-semibold text-secondary hover:text-primary transition-colors flex justify-between items-center">
@@ -268,6 +271,28 @@ const ProductDetail = () => {
                        </div>
                    </div>
                </div>
+            </div>
+
+            {/* You might also like Section */}
+            <div className="bg-[var(--color-bg-light)] py-12 md:py-16">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-2xl md:text-4xl font-light uppercase tracking-widest text-center mb-8 md:mb-12">
+                        You might also like
+                    </h2>
+                    
+                    {/* Products Grid */}
+                    <div className="relative">
+                        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
+                            {mockData.products
+                                .filter(p => p.id !== product.id) // Exclude current product
+                                .slice(0, 4) // Show only 4 products
+                                .map(relatedProduct => (
+                                    <ProductCard key={relatedProduct.id} product={relatedProduct} />
+                                ))
+                            }
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>

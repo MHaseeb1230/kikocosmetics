@@ -157,7 +157,7 @@ const Home = () => {
             <section className="bg-brand-primary py-12 md:py-16">
                 <div className="container mx-auto px-4">
                     <h2 className="text-3xl md:text-4xl font-light uppercase tracking-widest text-secondary mb-8 text-center">
-                        <strong className="font-bold">KIKO</strong> MOST LOVED
+                        <strong className="font-bold">NEEDS</strong> MOST LOVED
                     </h2>
                     
                     {/* Product Slider */}
@@ -249,7 +249,7 @@ const Home = () => {
                                     <button
                                         key={product.id}
                                         onClick={() => setSelectedNewProduct(idx)}
-                                        className={`w-16 h-16 md:w-20 md:h-20 rounded-full overflow-hidden border-2 transition-all ${
+                                        className={`w-12 h-12 md:w-12 md:h-12 rounded-full overflow-hidden border-2 transition-all ${
                                             selectedNewProduct === idx 
                                                 ? 'border-secondary scale-110' 
                                                 : 'border-[var(--color-border)] hover:border-primary'
@@ -265,13 +265,13 @@ const Home = () => {
                             </div>
 
                             {/* Product Title */}
-                            <h3 className="text-3xl md:text-4xl font-light uppercase tracking-tight text-secondary mb-4 whitespace-pre-line leading-tight">
+                            <h3 className="text-3xl w-full text-center md:text-center md:text-4xl font-light uppercase tracking-tight text-secondary mb-4 whitespace-pre-line leading-tight">
                                 {whatsNewProducts[selectedNewProduct].title.split('\n').map((line, idx) => (
                                     <span key={idx}>
                                         {idx === 0 || idx === 1 ? (
-                                            <strong className="font-bold">{line}</strong>
+                                            <strong className=" font-semibold">{line}</strong>
                                         ) : (
-                                            line
+                                            <span>{line}</span>
                                         )}
                                         {idx < whatsNewProducts[selectedNewProduct].title.split('\n').length - 1 && '\n'}
                                     </span>

@@ -2,8 +2,8 @@ import React, { useState, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import { Search, User, Heart, ShoppingBag, Menu, X } from 'lucide-react';
 import { useCart } from '../context/CartContext';
-import logo from '../assets/logos/needslogo1.jpeg';
-import logoMobile from '../assets/logos/Logo.webp';
+import logo from '../assets/logos/Needs Logo.png';
+import logoMobile from '../assets/logos/Needs Logo.png';
 
 const Navbar = () => {
     const { cartCount } = useCart();
@@ -158,7 +158,7 @@ const Navbar = () => {
                         <img
                             src={logo}
                             alt="Kiko Milano"
-                            className="h-7 w-15"
+                            className="h-7 w-18"
                         />
                     </Link>
                 </div>

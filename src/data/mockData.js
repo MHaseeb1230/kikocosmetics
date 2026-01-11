@@ -124,6 +124,7 @@ const mockData = {
                 "Coconut Extract",
                 "Vaccinium Angustifolium (Blueberry Fruit Extracts)"
             ],
+            "swatches": ["#FFF5E1", "#FFE4C4", "#F5DEB3", "#DEB887", "#D2B48C"],
             "volume": "200ml"
         },
         {
@@ -169,6 +170,7 @@ const mockData = {
                 "Glycolic Acid",
                 "Allantion"
             ],
+            "swatches": ["#E0F7FA", "#B2EBF2", "#80DEEA", "#4DD0E1", "#26C6DA"],
             "volume": "200ml"
         },
         {
@@ -216,6 +218,7 @@ const mockData = {
                 "Jojoba seed Oil",
                 "Palmitoyl"
             ],
+            "swatches": ["#E8EAF6", "#C5CAE9", "#9FA8DA", "#7986CB", "#5C6BC0"],
             "volume": "30ml"
         },
         {
@@ -258,6 +261,7 @@ const mockData = {
                 "Butylene Glycol",
                 "Zinc PCA"
             ],
+            "swatches": ["#FFF9E6", "#FFF3CD", "#FFECB5", "#FFE69C", "#FFD700"],
             "volume": "30ml"
         },
         {
@@ -303,6 +307,7 @@ const mockData = {
                 "Camellia Sinensis Leaf Extract",
                 "Madecassoside"
             ],
+            "swatches": ["#E8F5E9", "#C8E6C9", "#A5D6A7", "#81C784", "#66BB6A"],
             "volume": "30ml"
         },
         {
@@ -348,6 +353,7 @@ const mockData = {
                 "3-O-Ethyl Ascorbic Acid",
                 "Inositol (Vitamin B Complex)"
             ],
+            "swatches": ["#FFF8E1", "#FFECB3", "#FFE082", "#FFD54F", "#FFCA28"],
             "volume": "30ml"
         },
         {
@@ -395,6 +401,7 @@ const mockData = {
                 "Vaccinium Angustifolium (Blueberry) Fruit Extract",
                 "Alumina Magnesium"
             ],
+            "swatches": ["#F3E5F5", "#E1BEE7", "#CE93D8", "#BA68C8", "#AB47BC"],
             "volume": "50ml"
         },
         {
@@ -443,6 +450,7 @@ const mockData = {
                 "Salvia Miltiorrhiza Root Extract",
                 "1-2-Hexanediol"
             ],
+            "swatches": ["#FFF3E0", "#FFE0B2", "#FFCC80", "#FFB74D", "#FFA726"],
             "volume": "50ml"
         },
         {
@@ -452,7 +460,8 @@ const mockData = {
             "originalPrice": 2450,
             "discount": 30,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_FUSION_LIP_PENCIL_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_FUSION_LIP_PENCIL_01.jpg?v=1710412345",
+            "swatches": ["#C97064", "#B5495B", "#8B3A62", "#6B3340", "#A8516E"]
         },
         {
             "id": 11,
@@ -461,7 +470,8 @@ const mockData = {
             "originalPrice": 5850,
             "discount": 20,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/UNLIMITED_LIP_STYLO_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/UNLIMITED_LIP_STYLO_01.jpg?v=1710412345",
+            "swatches": ["#E6B8B7", "#D4A5A5", "#C48B8B", "#A97272", "#8F5E5E"]
         },
         {
             "id": 12,
@@ -470,7 +480,8 @@ const mockData = {
             "originalPrice": 5850,
             "discount": 20,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/GOSSAMER_EMOTION_LIPSTICK_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/GOSSAMER_EMOTION_LIPSTICK_01.jpg?v=1710412345",
+            "swatches": ["#DC143C", "#C71585", "#8B008B", "#B22222", "#CD5C5C"]
         },
         {
             "id": 13,
@@ -479,7 +490,8 @@ const mockData = {
             "originalPrice": 5990,
             "discount": 30,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/JELLY_STYLO_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/JELLY_STYLO_01.jpg?v=1710412345",
+            "swatches": ["#FFB6C1", "#FF69B4", "#FF1493", "#DB7093", "#FFC0CB"]
         },
         {
             "id": 14,
@@ -488,7 +500,8 @@ const mockData = {
             "originalPrice": 5850,
             "discount": 20,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_MARKER_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_MARKER_01.jpg?v=1710412345",
+            "swatches": ["#E74C3C", "#C0392B", "#922B21", "#641E16", "#A93226"]
         },
         {
             "id": 15,
@@ -497,7 +510,8 @@ const mockData = {
             "originalPrice": 6210,
             "discount": 20,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/LASTING_MATTE_VEIL_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/LASTING_MATTE_VEIL_01.jpg?v=1710412345",
+            "swatches": ["#D2691E", "#A0522D", "#8B4513", "#654321", "#806517"]
         },
         {
             "id": 16,
@@ -506,7 +520,8 @@ const mockData = {
             "originalPrice": 5850,
             "discount": 20,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/VELVET_PASSION_LIPSTICK_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/VELVET_PASSION_LIPSTICK_01.jpg?v=1710412345",
+            "swatches": ["#8B0000", "#A52A2A", "#B22222", "#DC143C", "#800020"]
         },
         {
             "id": 17,
@@ -515,7 +530,8 @@ const mockData = {
             "originalPrice": 4410,
             "discount": 20,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_VOLUME_TUTU_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_VOLUME_TUTU_01.jpg?v=1710412345",
+            "swatches": ["#FFC0CB", "#FFB6C1", "#FF69B4", "#FF1493", "#C71585"]
         },
         {
             "id": 18,
@@ -524,7 +540,8 @@ const mockData = {
             "originalPrice": 3810,
             "discount": 50,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_FUSION_CRAYON_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_FUSION_CRAYON_01.jpg?v=1710412345",
+            "swatches": ["#DDA0DD", "#DA70D6", "#BA55D3", "#9370DB", "#8B008B"]
         },
         {
             "id": 19,
@@ -533,7 +550,8 @@ const mockData = {
             "originalPrice": 5500,
             "discount": 30,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/HYDRA_SHINY_LIP_STYLO_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/HYDRA_SHINY_LIP_STYLO_01.jpg?v=1710412345",
+            "swatches": ["#F08080", "#FA8072", "#E9967A", "#CD853F", "#BC8F8F"]
         },
         {
             "id": 20,
@@ -542,7 +560,8 @@ const mockData = {
             "originalPrice": 3810,
             "discount": 50,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_FUSION_MATTE_CRAYON_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_FUSION_MATTE_CRAYON_01.jpg?v=1710412345",
+            "swatches": ["#C04000", "#B7410E", "#CC5500", "#D2691E", "#A0522D"]
         },
         {
             "id": 21,
@@ -551,7 +570,8 @@ const mockData = {
             "originalPrice": 2810,
             "discount": 20,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_SCRUB_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_SCRUB_01.jpg?v=1710412345",
+            "swatches": ["#FFF0F5", "#FFE4E1", "#FFB6C1", "#FFC0CB", "#FFD4DB"]
         },
         {
             "id": 22,
@@ -560,7 +580,8 @@ const mockData = {
             "originalPrice": 6210,
             "discount": 30,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/METAL_LIQUID_LIP_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/METAL_LIQUID_LIP_01.jpg?v=1710412345",
+            "swatches": ["#C0C0C0", "#B87333", "#E5AA70", "#CD7F32", "#9C7C38"]
         },
         {
             "id": 23,
@@ -569,7 +590,8 @@ const mockData = {
             "originalPrice": 2810,
             "discount": 20,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_BALM_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_BALM_01.jpg?v=1710412345",
+            "swatches": ["#FFE4E1", "#FADADD", "#FFB6C1", "#FFE4B5", "#F5DEB3"]
         },
         {
             "id": 24,
@@ -578,7 +600,8 @@ const mockData = {
             "originalPrice": 5850,
             "discount": 30,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/INSTANT_COLOUR_MATTE_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/INSTANT_COLOUR_MATTE_01.jpg?v=1710412345",
+            "swatches": ["#8B4513", "#A0522D", "#CD853F", "#D2691E", "#B8860B"]
         },
         {
             "id": 25,
@@ -587,7 +610,8 @@ const mockData = {
             "originalPrice": 4410,
             "discount": 20,
             "category": "makeup",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_VOLUME_TRASPARENTE_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/LIP_VOLUME_TRASPARENTE_01.jpg?v=1710412345",
+            "swatches": ["#FFFFFF", "#FFFAFA", "#FFF5EE", "#FFE4E1", "#FFEFD5"]
         },
         {
             "id": 26,
@@ -596,7 +620,8 @@ const mockData = {
             "originalPrice": 4510,
             "discount": 30,
             "category": "skincare",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_DROPS_GLOW_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_DROPS_GLOW_01.jpg?v=1710412345",
+            "swatches": ["#FFE4B5", "#FFEAA7", "#FFDAB9", "#F0E68C", "#EEE8AA"]
         },
         {
             "id": 27,
@@ -605,7 +630,8 @@ const mockData = {
             "originalPrice": 11610,
             "discount": 20,
             "category": "skincare",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/HYDRA_PRO_GLOW_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/HYDRA_PRO_GLOW_01.jpg?v=1710412345",
+            "swatches": ["#E0F2F1", "#B2DFDB", "#80CBC4", "#4DB6AC", "#26A69A"]
         },
         {
             "id": 28,
@@ -614,7 +640,8 @@ const mockData = {
             "originalPrice": 3510,
             "discount": 10,
             "category": "skincare",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/INTENSIVE_HAND_CREAM_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/INTENSIVE_HAND_CREAM_01.jpg?v=1710412345",
+            "swatches": ["#F3E5F5", "#E1BEE7", "#CE93D8", "#BA68C8", "#AB47BC"]
         },
         {
             "id": 29,
@@ -623,7 +650,8 @@ const mockData = {
             "originalPrice": 8410,
             "discount": 30,
             "category": "skincare",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_RADIANCE_CREAM_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_RADIANCE_CREAM_01.jpg?v=1710412345",
+            "swatches": ["#FFF9E6", "#FFECB3", "#FFE082", "#FFD54F", "#FFCA28"]
         },
         {
             "id": 30,
@@ -632,7 +660,8 @@ const mockData = {
             "originalPrice": 4250,
             "discount": 30,
             "category": "skincare",
-            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_HYDRA_SHOT_01.jpg?v=1710412345"
+            "image": "https://kikocosmetics.pk/cdn/shop/files/SMART_HYDRA_SHOT_01.jpg?v=1710412345",
+            "swatches": ["#E3F2FD", "#BBDEFB", "#90CAF9", "#64B5F6", "#42A5F5"]
         }
     ]
 };
