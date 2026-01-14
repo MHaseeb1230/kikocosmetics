@@ -1,0 +1,231 @@
+@import "tailwindcss";
+
+@theme {
+  /* ============================================
+     BRAND COLORS - Primary Colors
+     ============================================ */
+  --color-primary: #fff5f5;        /* Light Pink/Cream - Main brand color */
+  --color-secondary: #232323;       /* Dark Gray/Black - Secondary brand color */
+
+  /* ============================================
+     BRAND COLORS - Secondary Accent Colors
+     ============================================ */
+  --color-accent-brown: #75440C;    /* Brown accent */
+  --color-accent-orange: #FFA910;   /* Orange accent */
+  --color-accent-green: #008745;    /* Green accent */
+  --color-accent-blue: #0047AB;     /* Blue accent */
+
+  /* ============================================
+     UI COLORS - Backgrounds & Surfaces
+     ============================================ */
+  --color-bg-light: #F8F8F8;        /* Light background */
+  --color-bg-golden: #FFF9E6;       /* Light golden background */
+  --color-bg-dark: #1A1A1A;         /* Dark background */
+
+  /* ============================================
+     UI COLORS - Text Colors
+     ============================================ */
+  --color-text-primary: #232323;    /* Primary text color */
+  --color-text-secondary: #666666;  /* Secondary text color */
+  --color-text-light: #999999;      /* Light text color */
+
+  /* ============================================
+     UTILITY CLASSES
+     ============================================ */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  --color-text-white: #FFFFFF;      /* White text */
+
+  /* ============================================
+     UI COLORS - Borders & Dividers
+     ============================================ */
+  --color-border: #E5E5E5;          /* Default border color */
+  --color-border-light: #F0F0F0;    /* Light border color */
+  --color-border-dark: #333333;     /* Dark border color */
+
+  /* ============================================
+     STATE COLORS - Interactive Elements
+     ============================================ */
+  --color-hover: #C5A548;           /* Hover state (darker golden) */
+  --color-active: #B09640;          /* Active state */
+  --color-disabled: #CCCCCC;        /* Disabled state */
+  
+  /* ============================================
+     STATUS COLORS
+     ============================================ */
+  --color-success: #008745;         /* Success/Green */
+  --color-warning: #FFA910;         /* Warning/Orange */
+  --color-error: #D32F2F;           /* Error/Red */
+  --color-info: #0047AB;            /* Info/Blue */
+
+  /* ============================================
+     LEGACY COLORS (for backward compatibility)
+     ============================================ */
+  --color-accent: #F8F8F8;
+  --color-pink-light: #FFF9E6;      /* Changed to golden light */
+  --color-header-dark: #232323;
+  --color-sale-box: #FFF3E0;        /* Changed to light orange */
+
+  /* ============================================
+     TYPOGRAPHY
+     ============================================ */
+  --font-sans: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+body {
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: #FFFFFF;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* ============================================
+   BUTTON STYLES
+   ============================================ */
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+  background-color: var(--color-hover);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--color-secondary);
+  color: var(--color-text-white);
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  background-color: #333333;
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-primary);
+  border: 2px solid var(--color-primary);
+  padding: 0.5rem 1.5rem;
+  border-radius: 9999px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary);
+  color: var(--color-text-primary);
+}
+
+/* ============================================
+   UTILITY CLASSES - Background Colors
+   ============================================ */
+.bg-brand-primary { background-color: var(--color-primary); }
+.bg-brand-secondary { background-color: var(--color-secondary); }
+.bg-accent-brown { background-color: var(--color-accent-brown); }
+.bg-accent-orange { background-color: var(--color-accent-orange); }
+.bg-accent-green { background-color: var(--color-accent-green); }
+.bg-accent-blue { background-color: var(--color-accent-blue); }
+
+/* ============================================
+   UTILITY CLASSES - Text Colors
+   ============================================ */
+.text-brand-primary { color: var(--color-primary); }
+.text-brand-secondary { color: var(--color-secondary); }
+.text-accent-brown { color: var(--color-accent-brown); }
+.text-accent-orange { color: var(--color-accent-orange); }
+.text-accent-green { color: var(--color-accent-green); }
+.text-accent-blue { color: var(--color-accent-blue); }
+
+/* ============================================
+   UTILITY CLASSES - Border Colors
+   ============================================ */
+.border-brand-primary { border-color: var(--color-primary); }
+.border-brand-secondary { border-color: var(--color-secondary); }
+.border-default { border-color: var(--color-border); }
+
+/* Scrollbar styling */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: thin;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: block;
+  height: 4px;
+}
+
+.scrollbar-hide::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 10px;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb {
+  background: #cbd5e0;
+  border-radius: 10px;
+}
+
+.scrollbar-hide::-webkit-scrollbar-thumb:hover {
+  background: #a0aec0;
+}
+
+/* Hide scrollbar completely */
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Dropdown animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.2s ease-out;
+}
+
+/* Slide in animation for right panel */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-slideIn {
+  animation: slideIn 0.2s ease-out;
+}

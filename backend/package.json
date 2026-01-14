@@ -1,0 +1,35 @@
+{
+  "name": "kikocosmetics-backend",
+  "version": "1.0.0",
+  "description": "Backend API for Kiko Cosmetics E-commerce Platform",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "migrate": "node migrations/migrate.js",
+    "migrate:rollback": "node migrations/rollback.js",
+    "seed": "node migrations/seed.js"
+  },
+  "keywords": [
+    "ecommerce",
+    "cosmetics",
+    "api"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "axios": "^1.13.2",
+    "bcryptjs": "^2.4.3",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.18.3",
+    "express-validator": "^7.0.1",
+    "jsonwebtoken": "^9.0.2",
+    "pg": "^8.11.3",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.3"
+  }
+}
