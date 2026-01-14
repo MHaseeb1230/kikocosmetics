@@ -16,7 +16,7 @@ const ProductSlider = ({ products, title, showViewAll = false }) => {
     };
 
     return (
-        <section className="bg-[#FFF5F5] py-16"> {/* Light pink background */}
+        <section className="bg-brand-primary py-16"> {/* Light pink background */}
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center mb-10">
                     <h2 className="text-3xl font-bold uppercase tracking-widest">{title}</h2>
@@ -44,7 +44,7 @@ const ProductSlider = ({ products, title, showViewAll = false }) => {
                             
                             return (
                                 <div key={product.id} className="min-w-[280px] flex-shrink-0 snap-start">
-                                    <div className="relative bg-white rounded-lg overflow-hidden border border-gray-200 shadow-sm h-full flex flex-col">
+                                    <div className="relative bg-white rounded-lg overflow-hidden  shadow-sm h-full flex flex-col">
                                         {/* Discount Badge */}
                                         {discount > 0 && (
                                             <div className="absolute top-3 left-3 z-10">
