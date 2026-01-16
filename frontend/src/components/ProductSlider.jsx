@@ -1,11 +1,18 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import { ChevronLeft, ChevronRight, Heart } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useCart } from '../context/CartContext';
+import ProductCard from './ProductCard';
 
-const ProductSlider = ({ products, title, showViewAll = false }) => {
+const ProductSlider = ({ products, title, showViewAll = false, variant = 'default', viewAllLink = '/category/makeup' }) => {
     const scrollRef = useRef(null);
     const { addToCart } = useCart();
+    
+    // For card slider variant
+    const [productSlideIndex, setProductSlideIndex] = useState(0);
+    const productsPerSlide = 4;
+    const totalProductSlides = Math.ceil(products.length / productsPerSlide);
 
     const scroll = (direction) => {
         if (scrollRef.current) {
@@ -15,8 +22,96 @@ const ProductSlider = ({ products, title, showViewAll = false }) => {
         }
     };
 
+    // Card slider variant (like Needs Most Loved)
+    if (variant === 'card') {
+        return (
+            <section className="bg-brand-primary py-12 md:py-16">
+                <div className="container mx-auto px-4">
+                    <h2 className="text-3xl md:text-4xl font-light uppercase tracking-widest text-secondary mb-8 text-center">
+                        <strong className="font-bold">{title.split(' ')[0]}</strong> {title.split(' ').slice(1).join(' ').toUpperCase()}
+                    </h2>
+                    
+                    {/* Product Slider */}
+                    <div className="relative">
+                        {/* Left Arrow */}
+                        <button
+                            onClick={() => setProductSlideIndex((prev) => (prev - 1 + totalProductSlides) % totalProductSlides)}
+                            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 z-10 bg-white border border-[var(--color-border)] rounded-full p-2 hover:bg-[var(--color-bg-golden)] transition-colors shadow-md hidden lg:flex items-center justify-center"
+                            aria-label="Previous products"
+                        >
+                            <ChevronLeft size={24} className="text-secondary" />
+                        </button>
+
+                        {/* Right Arrow */}
+                        <button
+                            onClick={() => setProductSlideIndex((prev) => (prev + 1) % totalProductSlides)}
+                            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 z-10 bg-white border border-[var(--color-border)] rounded-full p-2 hover:bg-[var(--color-bg-golden)] transition-colors shadow-md hidden lg:flex items-center justify-center"
+                            aria-label="Next products"
+                        >
+                            <ChevronRight size={24} className="text-secondary" />
+                        </button>
+
+                        {/* Slider Container */}
+                        <div className="overflow-hidden">
+                            <motion.div
+                                className="flex"
+                                animate={{
+                                    x: `-${productSlideIndex * 100}%`
+                                }}
+                                transition={{
+                                    type: "spring",
+                                    stiffness: 300,
+                                    damping: 30
+                                }}
+                            >
+                                {Array.from({ length: totalProductSlides }).map((_, slideIdx) => {
+                                    const startIdx = slideIdx * productsPerSlide;
+                                    const endIdx = startIdx + productsPerSlide;
+                                    const slideProducts = products.slice(startIdx, endIdx);
+                                    
+                                    return (
+                                        <div
+                                            key={slideIdx}
+                                            className="min-w-full grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-6 px-2"
+                                        >
+                                            {slideProducts.map(product => (
+                                                <ProductCard key={product.id} product={product} />
+                                            ))}
+                                        </div>
+                                    );
+                                })}
+                            </motion.div>
+                        </div>
+
+                        {/* Slider Indicators */}
+                        <div className="flex justify-center gap-2 mt-6">
+                            {Array.from({ length: totalProductSlides }).map((_, idx) => (
+                                <button
+                                    key={idx}
+                                    onClick={() => setProductSlideIndex(idx)}
+                                    className={`h-1 transition-all ${productSlideIndex === idx ? 'bg-secondary w-8' : 'bg-[var(--color-border)] w-1'}`}
+                                    aria-label={`Go to slide ${idx + 1}`}
+                                />
+                            ))}
+                        </div>
+                    </div>
+
+                    {/* View All Link */}
+                    {showViewAll && (
+                        <div className="text-center mt-8">
+                            <Link to={viewAllLink} className="text-sm font-bold uppercase tracking-widest text-secondary border-b-2 border-secondary pb-1 hover:text-secondary hover:border-secondary transition-colors">
+                                View All
+                            </Link>
+                        </div>
+                    )}
+                </div>
+            </section>
+        );
+    }
+
+    // Default variant (horizontal scroll slider)
     return (
-        <section className="bg-brand-primary py-16"> {/* Light pink background */}
+        <section className="bg-brand-primary py-16">
             <div className="container mx-auto px-4">
                 <div className="flex justify-between items-center mb-10">
                     <h2 className="text-3xl font-bold uppercase tracking-widest">{title}</h2>
@@ -44,7 +139,7 @@ const ProductSlider = ({ products, title, showViewAll = false }) => {
                             
                             return (
                                 <div key={product.id} className="min-w-[280px] flex-shrink-0 snap-start">
-                                    <div className="relative bg-white rounded-lg overflow-hidden  shadow-sm h-full flex flex-col">
+                                    <div className="relative bg-white rounded-lg overflow-hidden shadow-sm h-full flex flex-col">
                                         {/* Discount Badge */}
                                         {discount > 0 && (
                                             <div className="absolute top-3 left-3 z-10">

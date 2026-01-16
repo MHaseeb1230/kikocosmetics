@@ -190,7 +190,7 @@ const Navbar = () => {
                         onMouseLeave={handleMouseLeave}
                     >
                         <Link to="/category/makeup" className=" transition-colors">
-                            Make Up
+                            Creams
                         </Link>
                         {activeDropdown === 'makeup' && (
                             <div 
@@ -199,7 +199,7 @@ const Navbar = () => {
                                 onMouseLeave={handleDropdownMouseLeave}
                             >
                                 {/* Left Side - Categories */}
-                                <div className="bg-brand-primary py-4 min-w-[220px]">
+                                {/* <div className="bg-brand-primary py-4 min-w-[220px]">
                                     <Link 
                                         to="/category/makeup" 
                                         className="block px-6 py-2 text-[11px] bg-brand-primary font-bold uppercase tracking-wider hover:bg-white transition-colors"
@@ -217,7 +217,7 @@ const Navbar = () => {
                                             </div>
                                         </div>
                                     ))}
-                                </div>
+                                </div> */}
 
                                 {/* Right Side - Items */}
                                 {activeSubcategory !== null && menuItems.makeup.subcategories[activeSubcategory] && (
@@ -254,15 +254,15 @@ const Navbar = () => {
                         onMouseLeave={handleMouseLeave}
                     >
                         <Link to="/category/skincare" className=" transition-colors">
-                            Skin Care
+                            Serums
                         </Link>
-                        {activeDropdown === 'skincare' && (
+                        {/* {activeDropdown === 'skincare' && (
                             <div 
                                 className="absolute bg-brand-primary left-0 top-full mt-3 bg-white shadow-lg z-50 animate-fadeIn flex"
                                 onMouseEnter={handleDropdownMouseEnter}
                                 onMouseLeave={handleDropdownMouseLeave}
                             >
-                                {/* Left Side - Categories */}
+                               
                                 <div className=" py-4 min-w-[220px]">
                                     <Link 
                                         to="/category/skincare" 
@@ -283,7 +283,7 @@ const Navbar = () => {
                                     ))}
                                 </div>
 
-                                {/* Right Side - Items */}
+                                
                                 {activeSubcategory !== null && menuItems.skincare.subcategories[activeSubcategory] && (
                                     <div 
                                         className="bg-white py-4 px-6 min-w-[280px] border-l border-[var(--color-border)] animate-slideIn"
@@ -309,7 +309,7 @@ const Navbar = () => {
                                     </div>
                                 )}
                             </div>
-                        )}
+                        )} */}
                     </div>
 
                     <div 
@@ -318,15 +318,15 @@ const Navbar = () => {
                         onMouseLeave={handleMouseLeave}
                     >
                         <Link to="/category/accessories" className=" transition-colors">
-                            Accessories
+                           SunScreens
                         </Link>
-                        {activeDropdown === 'accessories' && (
+                        {/* {activeDropdown === 'accessories' && (
                             <div 
                                 className="absolute bg-brand-primary left-0 top-full mt-3 bg-white shadow-lg z-50 animate-fadeIn flex"
                                 onMouseEnter={handleDropdownMouseEnter}
                                 onMouseLeave={handleDropdownMouseLeave}
                             >
-                                {/* Left Side - Categories */}
+                              
                                 <div className=" py-4 min-w-[220px]">
                                     <Link 
                                         to="/category/accessories" 
@@ -347,7 +347,7 @@ const Navbar = () => {
                                     ))}
                                 </div>
 
-                                {/* Right Side - Items */}
+                               
                                 {activeSubcategory !== null && menuItems.accessories.subcategories[activeSubcategory] && (
                                     <div 
                                         className="bg-white py-4 px-6 min-w-[280px] border-l border-[var(--color-border)] animate-slideIn"
@@ -373,13 +373,13 @@ const Navbar = () => {
                                     </div>
                                 )}
                             </div>
-                        )}
+                        )} */}
                     </div>
 
-                    <Link to="/category/suncare" className=" transition-colors">Sun Care</Link>
-                    <Link to="/category/fragrances" className=" transition-colors">Fragrances</Link>
+                    <Link to="/category/suncare" className=" transition-colors">Lotions</Link>
+                    {/* <Link to="/category/fragrances" className=" transition-colors">Fragrances</Link> */}
                     
-                    <div 
+                    {/* <div 
                         className="relative"
                         onMouseEnter={() => handleMouseEnter('hair')}
                         onMouseLeave={handleMouseLeave}
@@ -393,7 +393,7 @@ const Navbar = () => {
                                 onMouseEnter={handleDropdownMouseEnter}
                                 onMouseLeave={handleDropdownMouseLeave}
                             >
-                                {/* Left Side - Categories */}
+                            
                                 <div className=" py-4 min-w-[220px]">
                                     <Link 
                                         to="/category/hair" 
@@ -414,7 +414,7 @@ const Navbar = () => {
                                     ))}
                                 </div>
 
-                                {/* Right Side - Items */}
+                              
                                 {activeSubcategory !== null && menuItems.hair.subcategories[activeSubcategory] && (
                                     <div 
                                         className="bg-white py-4 px-6 min-w-[280px] border-l border-[var(--color-border)] animate-slideIn"
@@ -441,7 +441,7 @@ const Navbar = () => {
                                 )}
                             </div>
                         )}
-                    </div>
+                    </div> */}
 
                     <Link to="/category/new" className=" transition-colors">New</Link>
                 </div>

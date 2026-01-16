@@ -28,18 +28,6 @@
   --color-text-primary: #232323;    /* Primary text color */
   --color-text-secondary: #666666;  /* Secondary text color */
   --color-text-light: #999999;      /* Light text color */
-
-  /* ============================================
-     UTILITY CLASSES
-     ============================================ */
-  .no-scrollbar::-webkit-scrollbar {
-    display: none;
-  }
-  
-  .no-scrollbar {
-    -ms-overflow-style: none;
-    scrollbar-width: none;
-  }
   --color-text-white: #FFFFFF;      /* White text */
 
   /* ============================================

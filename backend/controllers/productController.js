@@ -54,6 +54,11 @@ export const getProducts = async (req, res) => {
       conditions.push('p.is_featured = true');
     }
 
+    if (req.query.new === 'true') {
+      // Get products from last 30 days
+      conditions.push(`p.created_at >= CURRENT_TIMESTAMP - INTERVAL '30 days'`);
+    }
+
     const whereClause = conditions.length > 0 ? `WHERE ${conditions.join(' AND ')}` : '';
 
     // Valid sort fields

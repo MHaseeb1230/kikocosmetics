@@ -62,9 +62,25 @@ const productService = {
     } catch (error) {
       throw error.response?.data || { success: false, message: 'Failed to fetch featured products' };
     }
+  },
+
+  // Get new products (last 30 days)
+  getNewProducts: async (limit = 10) => {
+    try {
+      const response = await api.get('/products', {
+        params: {
+          new: 'true',
+          limit,
+          sortBy: 'created_at',
+          sortOrder: 'DESC'
+        }
+      });
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching new products:', error);
+      throw error.response?.data || { success: false, message: 'Failed to fetch new products' };
+    }
   }
 };
 
 export default productService;
-
-

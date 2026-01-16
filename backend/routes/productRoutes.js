@@ -17,3 +17,6 @@ router.get('/:slug', getProductBySlug);
 export default router;
 
 
+
+
+

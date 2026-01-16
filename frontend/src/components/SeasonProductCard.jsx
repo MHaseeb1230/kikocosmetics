@@ -8,7 +8,7 @@ const SeasonProductCard = ({ product }) => {
     const discount = product.originalPrice ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100) : 0;
 
     return (
-        <div className="min-w-[280px] md:min-w-[320px] bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col">
+        <div className="w-[calc(50%-0.75rem)] sm:w-[calc(33.333%-1rem)] md:w-[calc(25%-1.125rem)] lg:w-[calc(20%-1.25rem)] flex-shrink-0 bg-white rounded-lg overflow-hidden border border-gray-100 shadow-sm hover:shadow-md transition-shadow flex flex-col">
             {/* Image Container */}
             <div className="relative aspect-square overflow-hidden bg-gray-50">
                 <Link to={`/product/${product.slug || product.id}`}>

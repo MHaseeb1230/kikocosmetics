@@ -4,9 +4,15 @@ import productService from '../services/productService';
 import ProductCard from '../components/ProductCard';
 import CategoryCard from '../components/CategoryCard';
 import ProductSlider from '../components/ProductSlider';
-import SeasonProductCard from '../components/SeasonProductCard';
-import SkinCareProductCard from '../components/SkinCareProductCard';
-import { ArrowRight, ChevronLeft, ChevronRight, Truck, ShieldCheck, RotateCcw } from 'lucide-react';
+// import SeasonSection from '../components/SeasonSection';
+import FollowViralHypeSection from '../components/FollowViralHypeSection';
+import OurServicesSection from '../components/OurServicesSection';
+import OurBrandSection from '../components/OurBrandSection';
+import TopCategoriesSection from '../components/TopCategoriesSection';
+import ShopSkinCareSection from '../components/ShopSkinCareSection';
+import IngredientsGlossarySection from '../components/IngredientsGlossarySection';
+import WhatsNewSection from '../components/WhatsNewSection';
+import { ArrowRight, ChevronLeft, ChevronRight } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // Import hero images
@@ -32,17 +38,9 @@ const heroImages = [
 const Home = () => {
     const [flashSaleProducts, setFlashSaleProducts] = useState([]);
     const [mostLovedProducts, setMostLovedProducts] = useState([]);
-    const [seasonProducts, setSeasonProducts] = useState([]);
     const [categories, setCategories] = useState([]);
     const [loading, setLoading] = useState(true);
     const [currentSlide, setCurrentSlide] = useState(0);
-    const [productSlideIndex, setProductSlideIndex] = useState(0);
-    const [selectedNewProduct, setSelectedNewProduct] = useState(0);
-    const [selectedSeason, setSelectedSeason] = useState('Winter');
-    const seasonScrollRef = useRef(null);
-    
-    const productsPerSlide = 4;
-    const totalProductSlides = Math.ceil(mostLovedProducts.length / productsPerSlide);
 
     // Fetch products from backend
     useEffect(() => {
@@ -66,9 +64,6 @@ const Home = () => {
                 // Most loved products (first 18)
                 setMostLovedProducts(allProducts.slice(0, 18));
                 
-                // Season products (with discount)
-                setSeasonProducts(allProducts.filter(p => p.discount > 0).slice(0, 10));
-                
             } catch (error) {
                 console.error('Error fetching products:', error);
             } finally {
@@ -78,37 +73,6 @@ const Home = () => {
         
         fetchProducts();
     }, []);
-
-    // What's New Products Data
-    const whatsNewProducts = [
-        {
-            id: 1,
-            title: "New Maxi Mod\nLength & Curl\nMascara\nCollection",
-            description: "Up to 24 hours of hold*, 9.8% longer* and 19% curlier*",
-            mainImage: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=2000",
-            smallImage1: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=800",
-            smallImage2: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800",
-            thumbnail: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=200"
-        },
-        {
-            id: 2,
-            title: "New One Magic Touch\nLip Stylo\nCollection",
-            description: "Moisturizing*, demi-matte finish and color in a single swipe",
-            mainImage: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=2000",
-            smallImage1: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=800",
-            smallImage2: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800",
-            thumbnail: "https://images.unsplash.com/photo-1596462502278-27bfdc403348?auto=format&fit=crop&q=80&w=200"
-        },
-        {
-            id: 3,
-            title: "Your Season\nWinter\nCollection",
-            description: "Discover the perfect winter makeup collection",
-            mainImage: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=2000",
-            smallImage1: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=800",
-            smallImage2: "https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?auto=format&fit=crop&q=80&w=800",
-            thumbnail: "https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&q=80&w=200"
-        }
-    ];
 
     useEffect(() => {
         const timer = setInterval(() => {
@@ -125,13 +89,6 @@ const Home = () => {
     const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % heroImages.length);
     const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + heroImages.length) % heroImages.length);
 
-    const scrollSeasonProducts = (direction) => {
-        if (seasonScrollRef.current) {
-            const { scrollLeft, clientWidth } = seasonScrollRef.current;
-            const scrollTo = direction === 'right' ? scrollLeft + clientWidth : scrollLeft - clientWidth;
-            seasonScrollRef.current.scrollTo({ left: scrollTo, behavior: 'smooth' });
-        }
-    };
 
     if (loading) {
         return (
@@ -144,7 +101,7 @@ const Home = () => {
     return (
         <div className="flex flex-col">
             {/* Hero Section Carousel */}
-            <section className="relative h-[95vh] overflow-hidden">
+            <section className="relative h-[80vh] overflow-hidden">
                 <AnimatePresence mode="wait">
                     <motion.div
                         key={currentSlide}
@@ -157,7 +114,7 @@ const Home = () => {
                         <img 
                             src={heroImages[currentSlide]} 
                             alt={`Hero ${currentSlide + 1}`}
-                            className="w-full h-full object-cover"
+                            className=" object-cover"
                         />
                     </motion.div>
                 </AnimatePresence>
@@ -177,17 +134,19 @@ const Home = () => {
                 </button>
             </section>
 
-            {/* Needs Most Loved Section with Slider */}
+            {/* Needs Most Loved Section */}
             {mostLovedProducts.length > 0 && (
                 <ProductSlider 
-                    title="Needs Most Loved" 
+                    title="NEEDS Most Loved" 
                     products={mostLovedProducts}
+                    variant="card"
                     showViewAll={true}
+                    viewAllLink="/category/makeup"
                 />
             )}
 
             {/* Categories */}
-            {categories.length > 0 && (
+            {/* {categories.length > 0 && (
                 <section className="container mx-auto px-4 py-16">
                     <h2 className="text-3xl font-bold uppercase tracking-widest mb-10 text-center">Shop by Category</h2>
                     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
@@ -196,7 +155,22 @@ const Home = () => {
                         ))}
                     </div>
                 </section>
-            )}
+            )} */}
+
+            {/* Ingredients Glossary Section */}
+            <IngredientsGlossarySection />
+
+            {/* What's new Section */}
+            <WhatsNewSection />
+
+            {/* Follow the viral hype Section */}
+            <FollowViralHypeSection />
+
+            {/* Our Services Section */}
+            <OurServicesSection />
+
+            {/* Your Season Section */}
+            {/* <SeasonSection /> */}
 
             {/* Flash Sale */}
             {flashSaleProducts.length > 0 && (
@@ -206,17 +180,14 @@ const Home = () => {
                 />
             )}
 
-            {/* Season Products */}
-            {seasonProducts.length > 0 && (
-                <section className="container mx-auto px-4 py-16">
-                    <h2 className="text-3xl font-bold uppercase tracking-widest mb-10">Season Special</h2>
-                    <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
-                        {seasonProducts.map(product => (
-                            <SeasonProductCard key={product.id} product={product} />
-                        ))}
-                    </div>
-                </section>
-            )}
+            {/* Top Categories and Shop Skin Care Section */}
+            <div className="bg-primary">
+                <TopCategoriesSection />
+                <ShopSkinCareSection />
+            </div>
+
+            {/* Our Brand Section - Above Footer */}
+            <OurBrandSection />
         </div>
     );
 };
